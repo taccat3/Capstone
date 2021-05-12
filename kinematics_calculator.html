@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, inital-scale=1">
+			<title>Kinematics Calculator</title>
+			<form name="myForm">
+	</head>
+	<body background="light_blue.png" onload="document.myForm.reset();">
+		
+		<center>
+			<table>			
+				<td>
+					<h1>Kinematics Calculator</h1> 
+				</td>
+				<td>
+					<h2>(1-Dimension)</h2>
+				</td>
+				
+			</table>
+		</center>
+		<hr>
+		
+		<h2>Kinematics Equations:</h2>
+		<center><h3>
+			<table cellpadding="20">
+				<tr>
+					<td>
+						v<sub>f</sub> = v<sub>0</sub> + at<br>
+					</td>
+					<td>
+						x<sub>f</sub> = x<sub>0</sub> + v<sub>0</sub>t + <sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup><br>
+					</td>
+					<td>
+						v<sub>f</sub><sup>2</sup> = v<sub>0</sub><sup>2</sup> + 2a(x<sub>f</sub> - x<sub>0</sub> )
+					</td>
+				</tr>
+			</table>
+		</h3></center>
+		<hr>
+				
+		<table style="background-color:#FFFFFF" border=1 cellpadding="20" cellspacing="0">
+			<tr>
+				<th>
+					Given Variables:
+				</th>
+				<th>
+					Solving for:
+				</th>
+				<th>
+					Answer:
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<!-- Initial Position -->
+					<input type="checkbox" id="cbx0" name="cbx0" onclick="show(this, numx0, lblx0)">
+					<label for="cbx0">Inital Position (x<sub>0</sub>)</label>
+					<input type="number" id="numx0" name="numx0" value=null style="display:none">
+					<label for="numx0" id="lblx0" style="display:none">m</label>
+					<br>	
+					
+					<!-- Initial Velocity -->
+					<input type="checkbox" id="cbv0" name="cbv0" onclick="show(this, numv0, lblv0)">
+					<label for="cbv0">Inital Velocity (v<sub>0</sub>)</label>
+					<input type="number" id="numv0" name="numv0" value=null style="display:none">
+					<label for="numv0" id="lblv0" style="display:none">m/s</label>
+					<br>
+					
+					<!-- Final Position -->
+					<input type="checkbox" id="cbx" name="cbx" onclick="show(this, numx, lblx)">
+					<label for="cbx">Final Position (x<sub>f</sub>)</label>
+					<input type="number" id="numx" name="numxf" value=null style="display:none">
+					<label for="numx" id="lblx" style="display:none">m</label>
+					<br>
+				
+					<!-- Final Velocity -->
+					<input type="checkbox" id="cbv" name="cbv" onclick="show(this, numv, lblv)">
+					<label for="cbv">Final Velocity (v<sub>f</sub>)</label>
+					<input type="number" id="numv" name="numvf" value=null style="display:none">
+					<label for="numv" id="lblv" style="display:none">m/s</label>
+					<br>
+			
+					<!-- Constant Acceleration -->
+					<input type="checkbox" id="cba" name="cba" onclick="show(this, numa, lbla)">
+					<label for="cba"> Acceleration (a)</label>
+					<input type="number" id="numa" name="numa" value=null style="display:none">
+					<label for="numa" id="lbla" style="display:none">m/s<sup>2</sup></label>
+					<br>
+				
+					<!-- Time -->
+					<input type="checkbox" id="cbt" name="cbt" onclick="show(this, numt, lblt)">
+					<label for="cbt">Time (t)</label>
+					<input type="number" id="numt" name="numt" value=null style="display:none">
+					<label for="numt" id="lblt" style="display:none">s</label>
+				</td>
+				<td> 
+						<input type=radio value="x0" name="answer" checked>Inital Position (x<sub>0</sub>)<br>
+						<input type=radio value="v0" name="answer">Inital Velocity (v<sub>0</sub>)<br>
+						<input type=radio value="x" name="answer">Final Position (x<sub>f</sub>)<br>
+						<input type=radio value="v" name="answer">Final Velocity (v<sub>f</sub>)<br>
+						<input type=radio value="a" name="answer">Acceleration (a)<br>
+						<input type=radio value="t" name="answer">Time (t)
+					</select>
+				</td>
+				<td>
+					<center><p id="output"><p></center>
+					<button type="button" onclick="output()">Calculate</button>
+				</td>
+			</tr>
+		</table>
+		
+		<textarea id="test" value=null rows=10></textarea>
+
+		
+		<script> 
+		
+		// variables
+			var v0 = {
+				name: "v0",
+				value: null
+			}
+			
+			var v = {
+				name: "v",
+				value: null
+			}
+			
+			var x0 = {
+				name: "x0",
+				value: null
+			}
+			
+			var x = {
+				name: "x",
+				value: null
+			}
+			
+			var a = {
+				name: "a",
+				value: null
+			}
+			
+			var t = {
+				name: "t",
+				value: null
+			}
+			
+			var answer = {
+				name: "answer",
+				value: null
+			}	
+			
+			const equations = {
+				EQ1: "v = v0 + at",
+				EQ2: "x = x0 + v0t + 0.5at^2",
+				EQ3: "v^2 = v0^2 + 2a(x - x0)",
+				INVALID: "invalid"
+				
+			}
+			
+			var equation;
+			
+			var valid = true;
+			
+			// functions
+			
+			function show(cb, num, m) {
+				var checkbox = document.getElementById(cb.id);
+				var field = document.getElementById(num.id);
+				var message = document.getElementById(m.id);
+
+				if (checkbox.checked == true) {
+					field.style.display = "inline";
+					message.style.display = "inline";
+				} else {
+					field.style.display = "none";
+					message.style.display = "none";
+
+				}
+			}
+			
+			function calculate() {			
+				// do the calulations
+				// currently only solves whatever way is listed first and possible
+								// will need to check for impossible values?
+								
+									// something like solve using all equations possible?
+									// and if a number is off, then the numbers given are impossible.
+				
+				answer.value = null;
+
+				
+				if(answer.name == 'x0') {
+					if(haveAllInputs(x, v0, t, a)) {
+						equation = equations.EQ2;
+						answer.value = toNum(x) - (toNum(v0) * toNum(t) + (0.5 * toNum(a) * Math.pow(toNum(t), 2)));
+					} else if (haveAllInputs(x, v0, v, a)) {
+						equation = equations.EQ3;
+						answer.value = -1 * (((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * toNum(a))) - toNum(x));
+					} else {
+						answer.value = "unsolvable";
+						equation = equations.INVALID;
+					}
+				} else if(answer.name == 'v0') {
+					if(haveAllInputs(v, a, t)) {
+						equation = equations.EQ1;
+						answer.value = toNum(v) - (toNum(a) * toNum(t));
+					} else if(haveAllInputs(v, a, x, x0)) {
+						equation = equations.EQ3;
+						answer.value = Math.sqrt(Math.pow(toNum(v), 2) -( 2 * toNum(a) * (toNum(x) - toNum(x0))));
+					} else {
+						answer.value = "unsolvable";
+						equation = equations.INVALID;
+					}
+				} else if(answer.name == 'v') {
+					if(haveAllInputs(v0, a, t)) {
+						equation = equations.EQ1;
+						answer.value = toNum(v0) + toNum(a) * toNum(t);
+					} else if(haveAllInputs(v0, a, x, x0)) {
+						equation = equations.EQ3;
+						answer.value = Math.sqrt(Math.pow(toNum(v0), 2) + 2 * toNum(a) * (toNum(x) - toNum(x0)));
+					} else {
+						answer.value = "unsolvable";
+						equation = equations.INVALID;
+					}
+				} else if(answer.name == 'x') {
+					if(haveAllInputs(x0, v0, t, a)) {
+						equation = equations.EQ2;
+						answer.value = toNum(x0) + (toNum(v0) * toNum(t) + (0.5 * toNum(a) * Math.pow(toNum(t), 2)));
+					} else if (haveAllInputs(x0, v0, v, a)) {
+						equation = equations.EQ3;
+						answer.value = ((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * toNum(a))) + toNum(x0);
+					} else {
+						answer.value = "unsolvable";
+						equation = equations.INVALID;
+					}
+				} else if(answer.name == 'a') {
+					if(haveAllInputs(v, v0, t)) {
+						equation = equations.EQ1;
+						answer.value = (toNum(v) - toNum(v0)) / toNum(t);
+					} else if (haveAllInputs(x, x0, v0, t)) {
+						equation = equations.EQ2;
+						answer.value = (toNum(x) - toNum(x0) - (toNum(v0) * toNum(t))) / (0.5 * Math.pow(toNum(t), 2));
+					} else if (haveAllInputs(x, x0, v0, v)) {
+						equation = equations.EQ3;
+						answer.value = ((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * (toNum(x) - toNum(x0))));
+					} else {
+						equation = equations.INVALID;
+						answer.value = "unsolvable";
+					}
+				} else if(answer.name == 't') {
+					if(haveAllInputs(v, v0, a)) {
+						equation = equations.EQ1;
+						answer.value = (toNum(v) - toNum(v0)) / toNum(a);
+					} else if(haveAllInputs(x, x0, v0, a)) {
+						equation = equations.EQ2;
+						// won't work if t = imaginary number --> need error checking
+						if(Math.pow(toNum(v0), 2) - (4 * (2*toNum(a)) * (toNum(x0) - toNum(x))) < 0) {
+							valid = false;
+							return;
+						}
+						var op1 = ((-1 * toNum(v0)) + Math.sqrt(Math.pow(toNum(v0), 2) - (4 * (2*toNum(a)) * (toNum(x0) - toNum(x))))) / (2 * (2 * toNum(a))); // quadratic formula
+						var op2 = ((-1 * toNum(v0)) - Math.sqrt(Math.pow(toNum(v0), 2) - (4 * (2*toNum(a)) * (toNum(x0) - toNum(x))))) / (2 * (2 * toNum(a))); // quadratic formula
+						
+						op1 = Math.round(op1 * 100) / 100;
+						op2 = Math.round(op2 * 100) / 100;
+						
+						answer.value = op1 + ", " + op2;
+					} else {
+						answer.value = "unsolvable";
+						equation = equations.INVALID;
+					}
+				}	
+			}
+			
+			function output() {
+			
+				// get inputs			
+				getValues();					
+			
+				// round the answer to 2 decimal places
+				answer.value = Math.round(answer.value * 100) / 100;
+				
+				calculate();
+				
+				if(!valid) {
+					window.alert("Calculated imaginary time, only real values accepted");
+					document.getElementById("output").innerHTML = "None Yet!";	
+					return;
+				}
+				
+				// output the answer
+				document.getElementById("output").innerHTML = answer.name + ' = ' + answer.value;	
+				
+				// output variable values
+				document.getElementById("test").innerHTML = 
+					showData("x0") + "\n" + showData("x") + "\n" + showData("v0") + "\n" + 
+					showData("v") + "\n" + showData("a") + "\n" + showData("t") + "\n";	
+
+			}
+			
+			function haveAllInputs(...inputs) {
+				for(var i of inputs) {
+					if(i.value == null) {
+						return false;
+					}
+				}
+				return true;
+			}
+			
+			function toNum(input) {
+				return Number("" + input.value);
+			}
+			
+			function showData(input) {
+				if(input == "x") {
+					return "x = " + x.value;
+				} else if(input == "v") {
+					return "v = " + v.value;
+				} else if(input == "x0") {
+					return "x0 = " + x0.value;
+				} else if(input == "v0") {
+					return "v0 = " + v0.value;
+				} else if(input == "a") {
+					return "a = " + a.value;
+				} else if(input == "t") {
+					return "t = " + t.value;
+				}
+			}
+			
+			function setValue(cb, tb, variable) {
+				checkbox = document.getElementById(cb);
+				if (checkbox.checked) {
+					variable.value = document.getElementById(tb).value;
+				} else {
+					variable.value = null;
+				}
+			}
+			
+			function getValues() {
+				setValue('cbv0', 'numv0', v0);
+				setValue('cbv', 'numv', v);
+				setValue('cbx0', 'numx0', x0);
+				setValue('cbx', 'numx', x);
+				setValue('cba', 'numa', a);
+				setValue('cbt', 'numt', t);
+				
+				var radios = document.getElementsByName("answer");
+				for(var i = 0; i < radios.length; i++) {
+					if(radios[i].checked) {
+						answer.name = radios[i].value;
+					}
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>
