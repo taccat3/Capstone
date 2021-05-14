@@ -54,45 +54,39 @@
 			<tr>
 				<td>
 					<!-- Initial Position -->
-					<input type="checkbox" id="cbx0" name="cbx0" onclick="show(this, numx0, lblx0)">
-					<label for="cbx0">Inital Position (x<sub>0</sub>)</label>
-					<input type="number" id="numx0" name="numx0" value=null style="display:none">
-					<label for="numx0" id="lblx0" style="display:none">m</label>
+					<label>Inital Position (x<sub>0</sub>)</label>
+					<input type="number" id="numx0" name="numx0" value=null >
+					<label for="numx0" id="lblx0" >m</label>
 					<br>	
 					
 					<!-- Initial Velocity -->
-					<input type="checkbox" id="cbv0" name="cbv0" onclick="show(this, numv0, lblv0)">
-					<label for="cbv0">Inital Velocity (v<sub>0</sub>)</label>
-					<input type="number" id="numv0" name="numv0" value=null style="display:none">
-					<label for="numv0" id="lblv0" style="display:none">m/s</label>
+					<label>Inital Velocity (v<sub>0</sub>)</label>
+					<input type="number" id="numv0" name="numv0" value=null >
+					<label for="numv0" id="lblv0" >m/s</label>
 					<br>
 					
 					<!-- Final Position -->
-					<input type="checkbox" id="cbx" name="cbx" onclick="show(this, numx, lblx)">
-					<label for="cbx">Final Position (x<sub>f</sub>)</label>
-					<input type="number" id="numx" name="numxf" value=null style="display:none">
-					<label for="numx" id="lblx" style="display:none">m</label>
+					<label>Final Position (x<sub>f</sub>)</label>
+					<input type="number" id="numx" name="numxf" value=null >
+					<label for="numx" id="lblx" >m</label>
 					<br>
 				
 					<!-- Final Velocity -->
-					<input type="checkbox" id="cbv" name="cbv" onclick="show(this, numv, lblv)">
-					<label for="cbv">Final Velocity (v<sub>f</sub>)</label>
-					<input type="number" id="numv" name="numvf" value=null style="display:none">
-					<label for="numv" id="lblv" style="display:none">m/s</label>
+					<label>Final Velocity (v<sub>f</sub>)</label>
+					<input type="number" id="numv" name="numvf" value=null >
+					<label for="numv" id="lblv" >m/s</label>
 					<br>
-			
+					
 					<!-- Constant Acceleration -->
-					<input type="checkbox" id="cba" name="cba" onclick="show(this, numa, lbla)">
-					<label for="cba"> Acceleration (a)</label>
-					<input type="number" id="numa" name="numa" value=null style="display:none">
-					<label for="numa" id="lbla" style="display:none">m/s<sup>2</sup></label>
+					<label> Acceleration (a)</label>
+					<input type="number" id="numa" name="numa" value=null >
+					<label for="numa" id="lbla" >m/s<sup>2</sup></label>
 					<br>
 				
 					<!-- Time -->
-					<input type="checkbox" id="cbt" name="cbt" onclick="show(this, numt, lblt)">
-					<label for="cbt">Time (t)</label>
-					<input type="number" id="numt" name="numt" value=null style="display:none">
-					<label for="numt" id="lblt" style="display:none">s</label>
+					<label>Time (t)</label>
+					<input type="number" id="numt" name="numt" value=null >
+					<label for="numt" id="lblt" >s</label>
 				</td>
 				<td> 
 						<input type=radio value="x0" name="answer" checked>Inital Position (x<sub>0</sub>)<br>
@@ -159,25 +153,20 @@
 				
 			}
 			
+			var options = {
+				EQ1: null,
+				EQ2: null,
+				EQ3: null
+			}
+			
 			var equation;
 			
-			var valid = true;
+			var valid = null;
 			
 			// functions
 			
-			function show(cb, num, m) {
-				var checkbox = document.getElementById(cb.id);
-				var field = document.getElementById(num.id);
-				var message = document.getElementById(m.id);
-
-				if (checkbox.checked == true) {
-					field.style.display = "inline";
-					message.style.display = "inline";
-				} else {
-					field.style.display = "none";
-					message.style.display = "none";
-
-				}
+			function turnOff() {
+				
 			}
 			
 			function calculate() {			
@@ -189,31 +178,90 @@
 									// and if a number is off, then the numbers given are impossible.
 				
 				answer.value = null;
-
 				
+				var p = options;
+
+				// each will check if the answer was already given and throw error if that is the case
+				
+				// solving for INITIAL POSITION
 				if(answer.name == 'x0') {
+				
+					// check if value is given
+					if (x0.value != null) {
+						valid = "x0 value was entered, cannot solve for given value";
+						return;
+					}
+					
+					// calculate possible answers
 					if(haveAllInputs(x, v0, t, a)) {
 						equation = equations.EQ2;
-						answer.value = toNum(x) - (toNum(v0) * toNum(t) + (0.5 * toNum(a) * Math.pow(toNum(t), 2)));
-					} else if (haveAllInputs(x, v0, v, a)) {
+						p.EQ2 = toNum(x) - (toNum(v0) * toNum(t) + (0.5 * toNum(a) * Math.pow(toNum(t), 2)));
+					} 
+					if (haveAllInputs(x, v0, v, a)) {
 						equation = equations.EQ3;
-						answer.value = -1 * (((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * toNum(a))) - toNum(x));
-					} else {
+						p.EQ3 = -1 * (((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * toNum(a))) - toNum(x));
+					}
+
+					// check if answers are valid
+					if(p.EQ2 != null && p.EQ3 != null && p.EQ2 != p.EQ3 || 
+						p.EQ2 == null && p.EQ3 == null) {
 						answer.value = "unsolvable";
 						equation = equations.INVALID;
+					} else {
+						if(p.EQ2 != null) {
+							answer.value = p.EQ2;
+						} else if (p.EQ3 != null){
+							answer.value = p.EQ3;
+						}
 					}
+					
+				// solving for INITIAL VELOCITY
 				} else if(answer.name == 'v0') {
+				
+					// check if value is given
+					if (v0.value != null) {
+						valid = "v0 value was entered, cannot solve for given value";
+						return;
+					}
+				
+					// calculate possible answers
 					if(haveAllInputs(v, a, t)) {
 						equation = equations.EQ1;
-						answer.value = toNum(v) - (toNum(a) * toNum(t));
-					} else if(haveAllInputs(v, a, x, x0)) {
+						p.EQ1 = toNum(v) - (toNum(a) * toNum(t));
+					}
+					if (haveAllInputs(x0, x, a, t)) {
+						equation = equations.EQ2;
+						p.EQ2 = (toNum(x) - toNum(x0) - (o.5 * toNum(a) * Math.pow(toNum(t), 2))) / toNum(t);
+					}
+					if(haveAllInputs(v, a, x, x0)) {
 						equation = equations.EQ3;
-						answer.value = Math.sqrt(Math.pow(toNum(v), 2) -( 2 * toNum(a) * (toNum(x) - toNum(x0))));
-					} else {
+						p.EQ3 = Math.sqrt(Math.pow(toNum(v), 2) -( 2 * toNum(a) * (toNum(x) - toNum(x0))));
+					}
+					
+					// check if answers are valid
+					if(p.EQ1 != null && p.EQ3 != null  && p.EQ1 != p.EQ3 ||
+						p.EQ1 != null && p.EQ2 != null && p.EQ1 != p.EQ2 ||
+						p.EQ2 != null && p.EQ3 != null && p.EQ2 != p.EQ3 ||
+						p.EQ2 == null && p.EQ3 == null && p.EQ1 == null) {
 						answer.value = "unsolvable";
 						equation = equations.INVALID;
+					} else {
+						if(p.EQ1 != null) {
+							answer.value = p.EQ1;
+						} else if(p.EQ2 != null) {
+							answer.value = p.EQ2;
+						} else if (p.EQ3 != null) {
+							answer.value = p.EQ3;
+						}
 					}
+					
+				// solve for FINAL VELOCITY
 				} else if(answer.name == 'v') {
+					if (v.value != null) {
+						valid = "v value was entered, cannot solve for given value";
+						return;
+					}
+				
 					if(haveAllInputs(v0, a, t)) {
 						equation = equations.EQ1;
 						answer.value = toNum(v0) + toNum(a) * toNum(t);
@@ -224,7 +272,14 @@
 						answer.value = "unsolvable";
 						equation = equations.INVALID;
 					}
+					
+				// solving for FINAL POSITION
 				} else if(answer.name == 'x') {
+					if (x.value != null) {
+						valid = "x value was entered, cannot solve for given value";
+						return;
+					}
+					
 					if(haveAllInputs(x0, v0, t, a)) {
 						equation = equations.EQ2;
 						answer.value = toNum(x0) + (toNum(v0) * toNum(t) + (0.5 * toNum(a) * Math.pow(toNum(t), 2)));
@@ -235,7 +290,14 @@
 						answer.value = "unsolvable";
 						equation = equations.INVALID;
 					}
+					
+				// solving for ACCELERATION
 				} else if(answer.name == 'a') {
+					if (a.value != null) {
+						valid = "a value was entered, cannot solve for given value";
+						return;
+					}
+				
 					if(haveAllInputs(v, v0, t)) {
 						equation = equations.EQ1;
 						answer.value = (toNum(v) - toNum(v0)) / toNum(t);
@@ -249,7 +311,14 @@
 						equation = equations.INVALID;
 						answer.value = "unsolvable";
 					}
+					
+				// solving for TIME
 				} else if(answer.name == 't') {
+					if (t.value != null) {
+						valid = "t value was entered, cannot solve for given value";
+						return;
+					}
+				
 					if(haveAllInputs(v, v0, a)) {
 						equation = equations.EQ1;
 						answer.value = (toNum(v) - toNum(v0)) / toNum(a);
@@ -257,7 +326,7 @@
 						equation = equations.EQ2;
 						// won't work if t = imaginary number --> need error checking
 						if(Math.pow(toNum(v0), 2) - (4 * (2*toNum(a)) * (toNum(x0) - toNum(x))) < 0) {
-							valid = false;
+							valid = "Calculated imaginary time, only real values accepted";;
 							return;
 						}
 						var op1 = ((-1 * toNum(v0)) + Math.sqrt(Math.pow(toNum(v0), 2) - (4 * (2*toNum(a)) * (toNum(x0) - toNum(x))))) / (2 * (2 * toNum(a))); // quadratic formula
@@ -271,21 +340,35 @@
 						answer.value = "unsolvable";
 						equation = equations.INVALID;
 					}
-				}	
+				}
+					
+				if(equation != equations.INVALID) {
+					answer.value = Math.round(answer.value * 100) / 100;
+					valid = null;
+				} else {
+					valid = "entered values contradict each other, invalid input"
+				}
+
+			}
+			
+			function isValid() {
+				
 			}
 			
 			function output() {
 			
 				// get inputs			
 				getValues();					
-			
-				// round the answer to 2 decimal places
-				answer.value = Math.round(answer.value * 100) / 100;
 				
+				window.alert("hi");
+				// check for valid answers
+				isValid(); // CURRENTLY EMPTY
+				
+				// calculate and round the answer to 2 decimal places
 				calculate();
 				
-				if(!valid) {
-					window.alert("Calculated imaginary time, only real values accepted");
+				if(valid != null) {
+					window.alert(valid);
 					document.getElementById("output").innerHTML = "None Yet!";	
 					return;
 				}
@@ -329,10 +412,17 @@
 				}
 			}
 			
-			function setValue(cb, tb, variable) {
-				checkbox = document.getElementById(cb);
+		function setValue(cb, tb, variable) {
+				/*checkbox = document.getElementById(cb);
 				if (checkbox.checked) {
 					variable.value = document.getElementById(tb).value;
+				} else {
+					variable.value = null;
+				}
+				*/
+				var q = document.getElementById(tb).value;
+				if(q != '') {
+					variable.value = q;
 				} else {
 					variable.value = null;
 				}
