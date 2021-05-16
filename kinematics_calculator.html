@@ -5,8 +5,9 @@
 			<meta name="viewport" content="width=device-width, inital-scale=1">
 			<title>Kinematics Calculator</title>
 			<form name="myForm">
+			<link rel="stylesheet" href="mystyle.css">
 	</head>
-	<body background="light_blue.png" onload="document.myForm.reset();">
+	<body background="../light_blue.png" onload="document.myForm.reset();">
 		
 		<center>
 			<table>			
@@ -32,7 +33,7 @@
 						x<sub>f</sub> = x<sub>0</sub> + v<sub>0</sub>t + <sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup><br>
 					</td>
 					<td>
-						v<sub>f</sub><sup>2</sup> = v<sub>0</sub><sup>2</sup> + 2a(x<sub>f</sub> - x<sub>0</sub> )
+						v<sub>f</sub><sup>2</sup> = v<sub>0</sub><sup>2</sup> + 2a(x<sub>f</sub> - x<sub>0</sub>)
 					</td>
 				</tr>
 			</table>
@@ -105,11 +106,74 @@
 		</table>
 		
 		<textarea id="test" value=null rows=10></textarea>
-
+		
+		<!-- Tab links-->
+		<div class="tab">
+			<button type="button" onclick="openCity(event, 'Bx0')">Solve for x<sub>0</sub></button>
+			<button type="button" onclick="openCity(event, 'Bv0')">Solve for v<sub>0</sub></button>
+			<button type="button" onclick="openCity(event, 'Bx')">Solve for x</button>
+			<button type="button" onclick="openCity(event, 'Bxv')">Solve for v</button>
+			<button type="button" onclick="openCity(event, 'Ba')">Solve for a</button>
+			<button type="button" onclick="openCity(event, 'Bf')">Solve for t</button>
+		</div>
+		
+		<!-- Tab Content> -->
+		<div id="Tx0" class="tabcontent">
+			Find Initial Position
+		</div>
+		
+		<div id="Tv0" class="tabcontent">
+			Find Initial Velocity
+		</div>
+		
+		<div id="Tx" class="tabcontent">
+			Find Position
+		</div>
+		
+		<div id="Tv" class="tabcontent">
+			Find Velocity
+		</div>
+		
+		<div id="Ta" class="tabcontent">
+			Find Acceleration
+		</div>
+		
+		<div id="Tt" class="tabcontent">
+			Find Time
+		</div>
+		
+		<!--
+		<button type="button" value="x0" name="Bx0" onclick=null>Solve for x<sub>0</sub></button>
+		<button type="button" value="v0" name="Bv0" onclick=null>Solve for v<sub>0</sub></button>
+		<button type="button" value="x" name="Bx" onclick=null>Solve for x</button>
+		<button type="button" value="v" name="Bv" onclick=null>Solve for v</button>
+		<button type="button" value="a" name="Ba" onclick=null>Solve for a</button>
+		<button type="button" value="t" name="Bt" onclick=null>Solve for t</button>
+		-->
 		
 		<script> 
 		
-		// variables
+			function openCity(evt, cityName) {
+				// Declare all variables
+				var i, tabcontent, tablinks;
+
+				// Get all elements with class="tabcontent" and hide them
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
+
+				// Get all elements with class="tablinks" and remove the class "active"
+				tablinks = document.getElementsByClassName("tablinks");
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+
+				// Show the current tab, and add an "active" class to the button that opened the tab
+				document.getElementById(cityName).style.display = "block";
+				evt.currentTarget.className += " active";
+			} 
+		
 			var v0 = {
 				name: "v0",
 				value: null
@@ -165,11 +229,7 @@
 			
 			// functions
 			
-			function turnOff() {
-				
-			}
-			
-			function calculate() {			
+			function calculate() {
 				// do the calulations
 				// currently only solves whatever way is listed first and possible
 								// will need to check for impossible values?
@@ -179,8 +239,10 @@
 				
 				answer.value = null;
 				
-				var p = options;
-
+				options.EQ1 = null;
+				options.EQ2 = null;
+				options.EQ3 = null;
+				
 				// each will check if the answer was already given and throw error if that is the case
 				
 				// solving for INITIAL POSITION
@@ -192,6 +254,8 @@
 						return;
 					}
 					
+					var p = options;
+					
 					// calculate possible answers
 					if(haveAllInputs(x, v0, t, a)) {
 						equation = equations.EQ2;
@@ -201,19 +265,9 @@
 						equation = equations.EQ3;
 						p.EQ3 = -1 * (((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * toNum(a))) - toNum(x));
 					}
-
-					// check if answers are valid
-					if(p.EQ2 != null && p.EQ3 != null && p.EQ2 != p.EQ3 || 
-						p.EQ2 == null && p.EQ3 == null) {
-						answer.value = "unsolvable";
-						equation = equations.INVALID;
-					} else {
-						if(p.EQ2 != null) {
-							answer.value = p.EQ2;
-						} else if (p.EQ3 != null){
-							answer.value = p.EQ3;
-						}
-					}
+															
+					// checks if answers match each other
+					isValid();
 					
 				// solving for INITIAL VELOCITY
 				} else if(answer.name == 'v0') {
@@ -227,33 +281,20 @@
 					// calculate possible answers
 					if(haveAllInputs(v, a, t)) {
 						equation = equations.EQ1;
-						p.EQ1 = toNum(v) - (toNum(a) * toNum(t));
+						options.EQ1 = toNum(v) - (toNum(a) * toNum(t));
 					}
 					if (haveAllInputs(x0, x, a, t)) {
 						equation = equations.EQ2;
-						p.EQ2 = (toNum(x) - toNum(x0) - (o.5 * toNum(a) * Math.pow(toNum(t), 2))) / toNum(t);
+						options.EQ2 = (toNum(x) - toNum(x0) - (0.5 * toNum(a) * Math.pow(toNum(t), 2))) / toNum(t);
 					}
 					if(haveAllInputs(v, a, x, x0)) {
 						equation = equations.EQ3;
-						p.EQ3 = Math.sqrt(Math.pow(toNum(v), 2) -( 2 * toNum(a) * (toNum(x) - toNum(x0))));
+						options.EQ3 = Math.sqrt(Math.pow(toNum(v), 2) -( 2 * toNum(a) * (toNum(x) - toNum(x0))));
 					}
 					
-					// check if answers are valid
-					if(p.EQ1 != null && p.EQ3 != null  && p.EQ1 != p.EQ3 ||
-						p.EQ1 != null && p.EQ2 != null && p.EQ1 != p.EQ2 ||
-						p.EQ2 != null && p.EQ3 != null && p.EQ2 != p.EQ3 ||
-						p.EQ2 == null && p.EQ3 == null && p.EQ1 == null) {
-						answer.value = "unsolvable";
-						equation = equations.INVALID;
-					} else {
-						if(p.EQ1 != null) {
-							answer.value = p.EQ1;
-						} else if(p.EQ2 != null) {
-							answer.value = p.EQ2;
-						} else if (p.EQ3 != null) {
-							answer.value = p.EQ3;
-						}
-					}
+					// checks if answers match each other
+
+					isValid();
 					
 				// solve for FINAL VELOCITY
 				} else if(answer.name == 'v') {
@@ -273,6 +314,9 @@
 						equation = equations.INVALID;
 					}
 					
+					// checks if answers match each other
+					isValid();
+					
 				// solving for FINAL POSITION
 				} else if(answer.name == 'x') {
 					if (x.value != null) {
@@ -290,6 +334,9 @@
 						answer.value = "unsolvable";
 						equation = equations.INVALID;
 					}
+					
+					// checks if answers match each other
+					isValid();
 					
 				// solving for ACCELERATION
 				} else if(answer.name == 'a') {
@@ -311,6 +358,9 @@
 						equation = equations.INVALID;
 						answer.value = "unsolvable";
 					}
+					
+					// checks if answers match each other
+					isValid();
 					
 				// solving for TIME
 				} else if(answer.name == 't') {
@@ -340,6 +390,9 @@
 						answer.value = "unsolvable";
 						equation = equations.INVALID;
 					}
+					
+					// checks if answers match each other
+					isValid();
 				}
 					
 				if(equation != equations.INVALID) {
@@ -351,18 +404,29 @@
 
 			}
 			
+			// checks if answers match each other
 			function isValid() {
-				
+				if(options.EQ1 != null && options.EQ3 != null  && options.EQ1 != options.EQ3 ||
+					options.EQ1 != null && options.EQ2 != null && options.EQ1 != options.EQ2 ||
+					options.EQ2 != null && options.EQ3 != null && options.EQ2 != options.EQ3 ||
+					options.EQ2 == null && options.EQ3 == null && options.EQ1 == null) {
+					answer.value = "unsolvable";
+					equation = equations.INVALID;
+				} else {
+					if(options.EQ1 != null) {
+						answer.value = options.EQ1;
+					} else if(options.EQ2 != null) {
+						answer.value = options.EQ2;
+					} else if (options.EQ3 != null) {
+						answer.value = options.EQ3;
+					}
+				}
 			}
 			
 			function output() {
 			
 				// get inputs			
-				getValues();					
-				
-				window.alert("hi");
-				// check for valid answers
-				isValid(); // CURRENTLY EMPTY
+				getValues();
 				
 				// calculate and round the answer to 2 decimal places
 				calculate();
