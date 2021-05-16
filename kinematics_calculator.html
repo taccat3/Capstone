@@ -1,514 +1,107 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, inital-scale=1">
-			<title>Kinematics Calculator</title>
-			<form name="myForm">
-			<link rel="stylesheet" href="mystyle.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			body {font-family: Arial;}
+
+			/* Style the tab */
+			.tab {
+			  overflow: hidden;
+			  border: 1px solid #ccc;
+			  background-color: #f1f1f1;
+			}
+
+			/* Style the buttons inside the tab */
+			.tab button {
+			  background-color: inherit;
+			  float: left;
+			  border: none;
+			  outline: none;
+			  cursor: pointer;
+			  padding: 14px 16px;
+			  transition: 0.3s;
+			  font-size: 17px;
+			}
+
+			/* Change background color of buttons on hover */
+			.tab button:hover {
+			  background-color: #ddd;
+			}
+
+			/* Create an active/current tablink class */
+			.tab button.active {
+			  background-color: #ccc;
+			}
+
+			/* Style the tab content */
+			.tabcontent {
+			  display: none;
+			  padding: 6px 12px;
+			  border: 1px solid #ccc;
+			  border-top: none;
+			}
+		</style>
 	</head>
-	<body background="../light_blue.png" onload="document.myForm.reset();">
-		
-		<center>
-			<table>			
-				<td>
-					<h1>Kinematics Calculator</h1> 
-				</td>
-				<td>
-					<h2>(1-Dimension)</h2>
-				</td>
-				
-			</table>
-		</center>
-		<hr>
-		
-		<h2>Kinematics Equations:</h2>
-		<center><h3>
-			<table cellpadding="20">
-				<tr>
-					<td>
-						v<sub>f</sub> = v<sub>0</sub> + at<br>
-					</td>
-					<td>
-						x<sub>f</sub> = x<sub>0</sub> + v<sub>0</sub>t + <sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup><br>
-					</td>
-					<td>
-						v<sub>f</sub><sup>2</sup> = v<sub>0</sub><sup>2</sup> + 2a(x<sub>f</sub> - x<sub>0</sub>)
-					</td>
-				</tr>
-			</table>
-		</h3></center>
-		<hr>
-				
-		<table style="background-color:#FFFFFF" border=1 cellpadding="20" cellspacing="0">
-			<tr>
-				<th>
-					Given Variables:
-				</th>
-				<th>
-					Solving for:
-				</th>
-				<th>
-					Answer:
-				</th>
-			</tr>
-			<tr>
-				<td>
-					<!-- Initial Position -->
-					<label>Inital Position (x<sub>0</sub>)</label>
-					<input type="number" id="numx0" name="numx0" value=null >
-					<label for="numx0" id="lblx0" >m</label>
-					<br>	
-					
-					<!-- Initial Velocity -->
-					<label>Inital Velocity (v<sub>0</sub>)</label>
-					<input type="number" id="numv0" name="numv0" value=null >
-					<label for="numv0" id="lblv0" >m/s</label>
-					<br>
-					
-					<!-- Final Position -->
-					<label>Final Position (x<sub>f</sub>)</label>
-					<input type="number" id="numx" name="numxf" value=null >
-					<label for="numx" id="lblx" >m</label>
-					<br>
-				
-					<!-- Final Velocity -->
-					<label>Final Velocity (v<sub>f</sub>)</label>
-					<input type="number" id="numv" name="numvf" value=null >
-					<label for="numv" id="lblv" >m/s</label>
-					<br>
-					
-					<!-- Constant Acceleration -->
-					<label> Acceleration (a)</label>
-					<input type="number" id="numa" name="numa" value=null >
-					<label for="numa" id="lbla" >m/s<sup>2</sup></label>
-					<br>
-				
-					<!-- Time -->
-					<label>Time (t)</label>
-					<input type="number" id="numt" name="numt" value=null >
-					<label for="numt" id="lblt" >s</label>
-				</td>
-				<td> 
-						<input type=radio value="x0" name="answer" checked>Inital Position (x<sub>0</sub>)<br>
-						<input type=radio value="v0" name="answer">Inital Velocity (v<sub>0</sub>)<br>
-						<input type=radio value="x" name="answer">Final Position (x<sub>f</sub>)<br>
-						<input type=radio value="v" name="answer">Final Velocity (v<sub>f</sub>)<br>
-						<input type=radio value="a" name="answer">Acceleration (a)<br>
-						<input type=radio value="t" name="answer">Time (t)
-					</select>
-				</td>
-				<td>
-					<center><p id="output"><p></center>
-					<button type="button" onclick="output()">Calculate</button>
-				</td>
-			</tr>
-		</table>
-		
-		<textarea id="test" value=null rows=10></textarea>
-		
-		<!-- Tab links-->
+	<body>
+
+		<h2>Tabs</h2>
+		<p>Click on the buttons inside the tabbed menu:</p>
+
 		<div class="tab">
-			<button type="button" onclick="openCity(event, 'Bx0')">Solve for x<sub>0</sub></button>
-			<button type="button" onclick="openCity(event, 'Bv0')">Solve for v<sub>0</sub></button>
-			<button type="button" onclick="openCity(event, 'Bx')">Solve for x</button>
-			<button type="button" onclick="openCity(event, 'Bxv')">Solve for v</button>
-			<button type="button" onclick="openCity(event, 'Ba')">Solve for a</button>
-			<button type="button" onclick="openCity(event, 'Bf')">Solve for t</button>
+		  <button class="tablinks" onclick="openCity(event, 'x0')">Find Initial Position</button>
+		  <button class="tablinks" onclick="openCity(event, 'v0')">Find Initial Velocity</button>
+		  <button class="tablinks" onclick="openCity(event, 'x')">Find </button>
+		  <button class="tablinks" onclick="openCity(event, 'v')">Find </button>
+		  <button class="tablinks" onclick="openCity(event, 'a')">Find </button>
+		  <button class="tablinks" onclick="openCity(event, 't')">Find </button>
+		</div>
+
+		<div id="x0" class="tabcontent">
+		  <h3>Initial Position, x<sub>0</sub></h3>
+		  <p>Something</p>
+		</div>
+
+		<div id="v0" class="tabcontent">
+		  <h3>Initial Velocity, v<sub>0</sub></h3>
+		  <p>Something</p>
+		</div>
+
+		<div id="x" class="tabcontent">
+		  <h3>Position, x</h3>
+		  <p>Something</p>
 		</div>
 		
-		<!-- Tab Content> -->
-		<div id="Tx0" class="tabcontent">
-			Find Initial Position
+		<div id="v" class="tabcontent">
+		  <h3>Velocity, v</h3>
+		  <p>Something</p>
 		</div>
 		
-		<div id="Tv0" class="tabcontent">
-			Find Initial Velocity
+		<div id="a" class="tabcontent">
+		  <h3>Acceleration, a</h3>
+		  <p>Something</p>
 		</div>
 		
-		<div id="Tx" class="tabcontent">
-			Find Position
+		<div id="t" class="tabcontent">
+		  <h3>Time, t</h3>
+		  <p>Something</p>
 		</div>
-		
-		<div id="Tv" class="tabcontent">
-			Find Velocity
-		</div>
-		
-		<div id="Ta" class="tabcontent">
-			Find Acceleration
-		</div>
-		
-		<div id="Tt" class="tabcontent">
-			Find Time
-		</div>
-		
-		<!--
-		<button type="button" value="x0" name="Bx0" onclick=null>Solve for x<sub>0</sub></button>
-		<button type="button" value="v0" name="Bv0" onclick=null>Solve for v<sub>0</sub></button>
-		<button type="button" value="x" name="Bx" onclick=null>Solve for x</button>
-		<button type="button" value="v" name="Bv" onclick=null>Solve for v</button>
-		<button type="button" value="a" name="Ba" onclick=null>Solve for a</button>
-		<button type="button" value="t" name="Bt" onclick=null>Solve for t</button>
-		-->
-		
-		<script> 
-		
+
+		<script>
 			function openCity(evt, cityName) {
-				// Declare all variables
-				var i, tabcontent, tablinks;
-
-				// Get all elements with class="tabcontent" and hide them
-				tabcontent = document.getElementsByClassName("tabcontent");
-				for (i = 0; i < tabcontent.length; i++) {
-					tabcontent[i].style.display = "none";
-				}
-
-				// Get all elements with class="tablinks" and remove the class "active"
-				tablinks = document.getElementsByClassName("tablinks");
-				for (i = 0; i < tablinks.length; i++) {
-					tablinks[i].className = tablinks[i].className.replace(" active", "");
-				}
-
-				// Show the current tab, and add an "active" class to the button that opened the tab
-				document.getElementById(cityName).style.display = "block";
-				evt.currentTarget.className += " active";
-			} 
-		
-			var v0 = {
-				name: "v0",
-				value: null
+			  var i, tabcontent, tablinks;
+			  tabcontent = document.getElementsByClassName("tabcontent");
+			  for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			  }
+			  tablinks = document.getElementsByClassName("tablinks");
+			  for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			  }
+			  document.getElementById(cityName).style.display = "block";
+			  evt.currentTarget.className += " active";
 			}
-			
-			var v = {
-				name: "v",
-				value: null
-			}
-			
-			var x0 = {
-				name: "x0",
-				value: null
-			}
-			
-			var x = {
-				name: "x",
-				value: null
-			}
-			
-			var a = {
-				name: "a",
-				value: null
-			}
-			
-			var t = {
-				name: "t",
-				value: null
-			}
-			
-			var answer = {
-				name: "answer",
-				value: null
-			}	
-			
-			const equations = {
-				EQ1: "v = v0 + at",
-				EQ2: "x = x0 + v0t + 0.5at^2",
-				EQ3: "v^2 = v0^2 + 2a(x - x0)",
-				INVALID: "invalid"
-				
-			}
-			
-			var options = {
-				EQ1: null,
-				EQ2: null,
-				EQ3: null
-			}
-			
-			var equation;
-			
-			var valid = null;
-			
-			// functions
-			
-			function calculate() {
-				// do the calulations
-				// currently only solves whatever way is listed first and possible
-								// will need to check for impossible values?
-								
-									// something like solve using all equations possible?
-									// and if a number is off, then the numbers given are impossible.
-				
-				answer.value = null;
-				
-				options.EQ1 = null;
-				options.EQ2 = null;
-				options.EQ3 = null;
-				
-				// each will check if the answer was already given and throw error if that is the case
-				
-				// solving for INITIAL POSITION
-				if(answer.name == 'x0') {
-				
-					// check if value is given
-					if (x0.value != null) {
-						valid = "x0 value was entered, cannot solve for given value";
-						return;
-					}
-					
-					var p = options;
-					
-					// calculate possible answers
-					if(haveAllInputs(x, v0, t, a)) {
-						equation = equations.EQ2;
-						p.EQ2 = toNum(x) - (toNum(v0) * toNum(t) + (0.5 * toNum(a) * Math.pow(toNum(t), 2)));
-					} 
-					if (haveAllInputs(x, v0, v, a)) {
-						equation = equations.EQ3;
-						p.EQ3 = -1 * (((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * toNum(a))) - toNum(x));
-					}
-															
-					// checks if answers match each other
-					isValid();
-					
-				// solving for INITIAL VELOCITY
-				} else if(answer.name == 'v0') {
-				
-					// check if value is given
-					if (v0.value != null) {
-						valid = "v0 value was entered, cannot solve for given value";
-						return;
-					}
-				
-					// calculate possible answers
-					if(haveAllInputs(v, a, t)) {
-						equation = equations.EQ1;
-						options.EQ1 = toNum(v) - (toNum(a) * toNum(t));
-					}
-					if (haveAllInputs(x0, x, a, t)) {
-						equation = equations.EQ2;
-						options.EQ2 = (toNum(x) - toNum(x0) - (0.5 * toNum(a) * Math.pow(toNum(t), 2))) / toNum(t);
-					}
-					if(haveAllInputs(v, a, x, x0)) {
-						equation = equations.EQ3;
-						options.EQ3 = Math.sqrt(Math.pow(toNum(v), 2) -( 2 * toNum(a) * (toNum(x) - toNum(x0))));
-					}
-					
-					// checks if answers match each other
-
-					isValid();
-					
-				// solve for FINAL VELOCITY
-				} else if(answer.name == 'v') {
-					if (v.value != null) {
-						valid = "v value was entered, cannot solve for given value";
-						return;
-					}
-				
-					if(haveAllInputs(v0, a, t)) {
-						equation = equations.EQ1;
-						answer.value = toNum(v0) + toNum(a) * toNum(t);
-					} else if(haveAllInputs(v0, a, x, x0)) {
-						equation = equations.EQ3;
-						answer.value = Math.sqrt(Math.pow(toNum(v0), 2) + 2 * toNum(a) * (toNum(x) - toNum(x0)));
-					} else {
-						answer.value = "unsolvable";
-						equation = equations.INVALID;
-					}
-					
-					// checks if answers match each other
-					isValid();
-					
-				// solving for FINAL POSITION
-				} else if(answer.name == 'x') {
-					if (x.value != null) {
-						valid = "x value was entered, cannot solve for given value";
-						return;
-					}
-					
-					if(haveAllInputs(x0, v0, t, a)) {
-						equation = equations.EQ2;
-						answer.value = toNum(x0) + (toNum(v0) * toNum(t) + (0.5 * toNum(a) * Math.pow(toNum(t), 2)));
-					} else if (haveAllInputs(x0, v0, v, a)) {
-						equation = equations.EQ3;
-						answer.value = ((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * toNum(a))) + toNum(x0);
-					} else {
-						answer.value = "unsolvable";
-						equation = equations.INVALID;
-					}
-					
-					// checks if answers match each other
-					isValid();
-					
-				// solving for ACCELERATION
-				} else if(answer.name == 'a') {
-					if (a.value != null) {
-						valid = "a value was entered, cannot solve for given value";
-						return;
-					}
-				
-					if(haveAllInputs(v, v0, t)) {
-						equation = equations.EQ1;
-						answer.value = (toNum(v) - toNum(v0)) / toNum(t);
-					} else if (haveAllInputs(x, x0, v0, t)) {
-						equation = equations.EQ2;
-						answer.value = (toNum(x) - toNum(x0) - (toNum(v0) * toNum(t))) / (0.5 * Math.pow(toNum(t), 2));
-					} else if (haveAllInputs(x, x0, v0, v)) {
-						equation = equations.EQ3;
-						answer.value = ((Math.pow(toNum(v), 2) - Math.pow(toNum(v0), 2)) / (2 * (toNum(x) - toNum(x0))));
-					} else {
-						equation = equations.INVALID;
-						answer.value = "unsolvable";
-					}
-					
-					// checks if answers match each other
-					isValid();
-					
-				// solving for TIME
-				} else if(answer.name == 't') {
-					if (t.value != null) {
-						valid = "t value was entered, cannot solve for given value";
-						return;
-					}
-				
-					if(haveAllInputs(v, v0, a)) {
-						equation = equations.EQ1;
-						answer.value = (toNum(v) - toNum(v0)) / toNum(a);
-					} else if(haveAllInputs(x, x0, v0, a)) {
-						equation = equations.EQ2;
-						// won't work if t = imaginary number --> need error checking
-						if(Math.pow(toNum(v0), 2) - (4 * (2*toNum(a)) * (toNum(x0) - toNum(x))) < 0) {
-							valid = "Calculated imaginary time, only real values accepted";;
-							return;
-						}
-						var op1 = ((-1 * toNum(v0)) + Math.sqrt(Math.pow(toNum(v0), 2) - (4 * (2*toNum(a)) * (toNum(x0) - toNum(x))))) / (2 * (2 * toNum(a))); // quadratic formula
-						var op2 = ((-1 * toNum(v0)) - Math.sqrt(Math.pow(toNum(v0), 2) - (4 * (2*toNum(a)) * (toNum(x0) - toNum(x))))) / (2 * (2 * toNum(a))); // quadratic formula
-						
-						op1 = Math.round(op1 * 100) / 100;
-						op2 = Math.round(op2 * 100) / 100;
-						
-						answer.value = op1 + ", " + op2;
-					} else {
-						answer.value = "unsolvable";
-						equation = equations.INVALID;
-					}
-					
-					// checks if answers match each other
-					isValid();
-				}
-					
-				if(equation != equations.INVALID) {
-					answer.value = Math.round(answer.value * 100) / 100;
-					valid = null;
-				} else {
-					valid = "entered values contradict each other, invalid input"
-				}
-
-			}
-			
-			// checks if answers match each other
-			function isValid() {
-				if(options.EQ1 != null && options.EQ3 != null  && options.EQ1 != options.EQ3 ||
-					options.EQ1 != null && options.EQ2 != null && options.EQ1 != options.EQ2 ||
-					options.EQ2 != null && options.EQ3 != null && options.EQ2 != options.EQ3 ||
-					options.EQ2 == null && options.EQ3 == null && options.EQ1 == null) {
-					answer.value = "unsolvable";
-					equation = equations.INVALID;
-				} else {
-					if(options.EQ1 != null) {
-						answer.value = options.EQ1;
-					} else if(options.EQ2 != null) {
-						answer.value = options.EQ2;
-					} else if (options.EQ3 != null) {
-						answer.value = options.EQ3;
-					}
-				}
-			}
-			
-			function output() {
-			
-				// get inputs			
-				getValues();
-				
-				// calculate and round the answer to 2 decimal places
-				calculate();
-				
-				if(valid != null) {
-					window.alert(valid);
-					document.getElementById("output").innerHTML = "None Yet!";	
-					return;
-				}
-				
-				// output the answer
-				document.getElementById("output").innerHTML = answer.name + ' = ' + answer.value;	
-				
-				// output variable values
-				document.getElementById("test").innerHTML = 
-					showData("x0") + "\n" + showData("x") + "\n" + showData("v0") + "\n" + 
-					showData("v") + "\n" + showData("a") + "\n" + showData("t") + "\n";	
-
-			}
-			
-			function haveAllInputs(...inputs) {
-				for(var i of inputs) {
-					if(i.value == null) {
-						return false;
-					}
-				}
-				return true;
-			}
-			
-			function toNum(input) {
-				return Number("" + input.value);
-			}
-			
-			function showData(input) {
-				if(input == "x") {
-					return "x = " + x.value;
-				} else if(input == "v") {
-					return "v = " + v.value;
-				} else if(input == "x0") {
-					return "x0 = " + x0.value;
-				} else if(input == "v0") {
-					return "v0 = " + v0.value;
-				} else if(input == "a") {
-					return "a = " + a.value;
-				} else if(input == "t") {
-					return "t = " + t.value;
-				}
-			}
-			
-		function setValue(cb, tb, variable) {
-				/*checkbox = document.getElementById(cb);
-				if (checkbox.checked) {
-					variable.value = document.getElementById(tb).value;
-				} else {
-					variable.value = null;
-				}
-				*/
-				var q = document.getElementById(tb).value;
-				if(q != '') {
-					variable.value = q;
-				} else {
-					variable.value = null;
-				}
-			}
-			
-			function getValues() {
-				setValue('cbv0', 'numv0', v0);
-				setValue('cbv', 'numv', v);
-				setValue('cbx0', 'numx0', x0);
-				setValue('cbx', 'numx', x);
-				setValue('cba', 'numa', a);
-				setValue('cbt', 'numt', t);
-				
-				var radios = document.getElementsByName("answer");
-				for(var i = 0; i < radios.length; i++) {
-					if(radios[i].checked) {
-						answer.name = radios[i].value;
-					}
-				}
-			}
-			
-			
 		</script>
+		   
 	</body>
-</html>
+</html> 
