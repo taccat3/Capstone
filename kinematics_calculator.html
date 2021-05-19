@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, inital-scale=1">
+			<title>Kinematics Calculator</title>
 		<style>
 			body {font-family: Arial;}
 
@@ -42,85 +44,147 @@
 			  border-top: none;
 			}
 		</style>
+		
 	</head>
-	<body>
+	<body background="../light_blue.png">
 
-		<h2>Tabs</h2>
+		<table>
+			<tr>
+				<td>
+					<h1>Kinematics Calculator</h1>
+				</td>
+				<td>
+					<h2>(1-Dimension)</h2>
+				</td>
+			</tr>
+		</table>
 		<p>Click on the buttons inside the tabbed menu:</p>
 
 		<div class="tab">
-		  <button class="tablinks" onclick="openCity(event, 'x0')">Find Initial Position</button>
-		  <button class="tablinks" onclick="openCity(event, 'v0')">Find Initial Velocity</button>
-		  <button class="tablinks" onclick="openCity(event, 'x')">Find </button>
-		  <button class="tablinks" onclick="openCity(event, 'v')">Find </button>
-		  <button class="tablinks" onclick="openCity(event, 'a')">Find </button>
-		  <button class="tablinks" onclick="openCity(event, 't')">Find </button>
+		  <button class="tablinks" onclick="openTab(event, 'x0')">Find Initial Position</button>
+		  <button class="tablinks" onclick="openTab(event, 'v0')">Find Initial Velocity</button>
+		  <button class="tablinks" onclick="openTab(event, 'x')">Find Position</button>
+		  <button class="tablinks" onclick="openTab(event, 'v')">Find Velocity</button>
+		  <button class="tablinks" onclick="openTab(event, 'a')">Find Acceleration</button>
+		  <button class="tablinks" onclick="openTab(event, 't')">Find Time</button>
 		</div>
 
-		<div id="x0" class="tabcontent">
+		<div id="x0" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Initial Position, x<sub>0</sub></h3>
-		  Choose equation:<br>
 
-		  <!-- Equation 2 -->
-		   <button type=button id="eq2x0" onclick="show(eq2x0, numx2, numv02, numa2, numt2)">
-				<b>
-					<var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> + 
-						<var>v<sub>0</sub>t</var> + 
-						<var><sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup></var>
-				</b>
-			</button>
-			<!--Equation 3-->
-			<button type=button id="eq3x0" onclick="show(this, numx03)">
-				<b>
-					<var>v<sub>f</sub><sup>2</sup></var> = 
-						<var>v<sub>0</sub><sup>2</sup></var> + 
-						<var>2a</var>(<var>x<sub>f</sub></var> - 
-						<var>x<sub>0</sub></var>)
-				</b>
-			</button>
+		  <div id="buttons" style="display:inline">
+			Choose equation:
 			<br>
+			<!-- Equation 2 -->
+			   <button type=button id="eq2x0" onclick="show(x0Eq2)">
+					<b>
+						<var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> + 
+							<var>v<sub>0</sub>t</var> + 
+							<var><sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup></var>
+					</b>
+				</button>
+				<!--Equation 3-->
+				<button type=button id="eq3x0" onclick="show(x0Eq3)">
+					<b>
+						<var>v<sub>f</sub><sup>2</sup></var> = 
+							<var>v<sub>0</sub><sup>2</sup></var> + 
+							<var>2a</var>(<var>x<sub>f</sub></var> - 
+							<var>x<sub>0</sub></var>)
+					</b>
+				</button>
+				<br>
+			</div>
 			
 			<!--Input boxes-->
 			<!--Equation 2-->
-			<label for="numx2"><var>x</var> = </label>
-		    <input type="number" id=numx2 value=null style="width:50px;"></input> <br>
-		    <label for="numv02"><var>v<sub>0</sub></var> = </label>
-		    <input type="number" id=numv02 value=null style="width:50px;"></input> <br>
-			<label for="numa2"><var>a</var> = </label>
-		    <input type="number" id=numa2 value=null style="width:50px;"></input> <br>
-			<label for="numt2"><var>t</var> = </label>
-		    <input type="number" id=numt2 value=null style="width:50px;"></input> <br>
+			<div id="x0Eq2" style="display:none">
+				<var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> + 
+					<var>v<sub>0</sub>t</var> + 
+					<var><sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup></var>
+					
+				<br>	
+				<label for="x0x2"><var>x</var> = </label>
+				<input type="number" id=x0x2 value=null style="width:50px;"></input> <br>
+				<label for="numv02"><var>v<sub>0</sub></var> = </label>
+				<input type="x0v02" id=x0v02 value=null style="width:50px;"></input> <br>
+				<label for="x0a2"><var>a</var> = </label>
+				<input type="number" id=x0a2 value=null style="width:50px;"></input> <br>
+				<label for="x0t2"><var>t</var> = </label>
+				<input type="number" id=x0t2 value=null style="width:50px;"></input> <br>
+				
+				<br>
+				
+				<button type="button" onclick="calculate('x0', 'E2')">Calculate</button>
+			</div>
+			
+			<div id="x0Eq3" style="display:none">
+				<var>v<sub>f</sub><sup>2</sup></var> = 
+					<var>v<sub>0</sub><sup>2</sup></var> + 
+					<var>2a</var>(<var>x<sub>f</sub></var> - 
+					<var>x<sub>0</sub></var>)
+					
+				<br>	
+				<label for="x0v3"><var>v</var> = </label>
+				<input type="number" id=x0v3 value=null style="width:50px;"></input> <br>
+				<label for="x0v03"><var>v<sub>0</sub></var> = </label>
+				<input type="number" id=x0v03 value=null style="width:50px;"></input> <br>
+				<label for="x0a3"><var>a</var> = </label>
+				<input type="number" id=x0a3 value=null style="width:50px;"></input> <br>
+				<label for="x0x3"><var>x</var> = </label>
+				<input type="number" id=x0x3 value=null style="width:50px;"></input> <br>
+				
+				<br>
+				
+				<button type="button" onclick="calculate('x0', 'E3')">Calculate</button>
+			</div>
 
-		  <p>Something</p>
+		  <p id="answer"><var>x<sub>0</sub></var> = </p>
 		</div>
-
-		<div id="v0" class="tabcontent">
+		
+		<div id="v0" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Initial Velocity, v<sub>0</sub></h3>
 		  <p>Something</p>
 		</div>
 
-		<div id="x" class="tabcontent">
+		<div id="x" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Position, x</h3>
 		  <p>Something</p>
 		</div>
 		
-		<div id="v" class="tabcontent">
+		<div id="v" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Velocity, v</h3>
 		  <p>Something</p>
 		</div>
 		
-		<div id="a" class="tabcontent">
+		<div id="a" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Acceleration, a</h3>
 		  <p>Something</p>
 		</div>
 		
-		<div id="t" class="tabcontent">
+		<div id="t" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Time, t</h3>
 		  <p>Something</p>
 		</div>
 
 		<script>
-			function openCity(evt, cityName) {
+			// variables
+			const SolvingFor = {
+				X0, 
+				X, 
+				V0,
+				V, 
+				A, 
+				T
+			}
+			
+			const Equation = {
+				E1,
+				E2,
+				E3
+			}
+		
+			// visuals that have nothing to do with calculating physics stuff
+			function openTab(evt, variable) {
 			  var i, tabcontent, tablinks;
 			  tabcontent = document.getElementsByClassName("tabcontent");
 			  for (i = 0; i < tabcontent.length; i++) {
@@ -130,20 +194,103 @@
 			  for (i = 0; i < tablinks.length; i++) {
 				tablinks[i].className = tablinks[i].className.replace(" active", "");
 			  }
-			  document.getElementById(cityName).style.display = "block";
+			  document.getElementById(variable).style.display = "block";
 			  evt.currentTarget.className += " active";
 			}
 			
-			function show(...inputs) {		
-				var btn = false;
-				for(var i of boxes) {
-					if(!btn) {
-						i.style.display = "none";
-						btn = true;
-					} else {
-						i.style.display = "inline";
+			function show(boxes) {		
+				document.getElementById("buttons").style.display = "none";
+				document.getElementById(boxes.id).style.display = "inline";
+			}
+			
+			// Actual Calculation stuff
+			function calculate(answer, equation) {
+				switch(answer) {
+					case x0:
+						switch(equation) {
+							case E2:
+								// get variable values
+								var x = document.getElementById("x0x2");
+								var v0 = document.getElementById("x0v02");
+								var a = document.getElementById("x0a2");
+								var t = document.getElementById("x0t2");
+								
+								// calculate answer
+								var answer = x - (v0 * t + 0.5 * a * Math.pow(t, 2));
+								
+								// output answer
+								document.getElementById("answer").value = answer;
+								break;
+							case E2:
+								break;
+							default:
+								window.alert(answer + " " + equation + "something wrong");
 						}
+						break;
+					case x:
+						switch(equation) {
+							case E2:
+								break;
+							case E2:
+								break;
+							default:
+							window.alert(answer + " " + equation + "something wrong");
+						}
+						break;
+					case v0:
+						switch(equation) {
+							case E1:
+								break;
+							case E2:
+								break;
+							case E3:
+								break:
+							default:
+							window.alert(answer + " " + equation + "something wrong");
+						}
+						break;
+					case v:
+						switch(equation) {
+							case E1:
+								break;
+							case E3:
+								break:
+							default:
+							window.alert(answer + " " + equation + "something wrong");
+						}
+						break;
+					case a:
+						switch(equation) {
+							case E1:
+								break;
+							case E2:
+								break;
+							case E3:
+								break:
+							default:
+							window.alert(answer + " " + equation + "something wrong");
+						}
+						break;
+					case t:
+						switch(equation) {
+							case E1:
+								break;
+							case E2:
+								break;
+							default:
+							window.alert(answer + " " + equation + "something wrong");
+						}
+						break;
+					default:
+						window.alert(answer + " " + equation + "something wrong");
 				}
+			}
+			
+			window.onload = function() {
+				document.getElementById("numx2").value = '';
+				document.getElementById("numv02").value = '';
+				document.getElementById("numa2").value = '';
+				document.getElementById("numt2").value = '';
 			}
 		</script>
 		   
