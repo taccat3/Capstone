@@ -135,12 +135,11 @@
 			}
 			
 			function show(...inputs) {		
-				var btn = null;
+				var btn = false;
 				for(var i of boxes) {
-					if(btn == null) {
+					if(!btn) {
 						i.style.display = "none";
 						btn = true;
-
 					} else {
 						i.style.display = "inline";
 						}
