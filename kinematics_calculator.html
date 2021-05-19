@@ -59,6 +59,38 @@
 
 		<div id="x0" class="tabcontent">
 		  <h3>Initial Position, x<sub>0</sub></h3>
+		  Choose equation:<br>
+
+		  <!-- Equation 2 -->
+		   <button type=button id="eq2x0" onclick="show(eq2x0, numx2, numv02, numa2, numt2)">
+				<b>
+					<var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> + 
+						<var>v<sub>0</sub>t</var> + 
+						<var><sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup></var>
+				</b>
+			</button>
+			<!--Equation 3-->
+			<button type=button id="eq3x0" onclick="show(this, numx03)">
+				<b>
+					<var>v<sub>f</sub><sup>2</sup></var> = 
+						<var>v<sub>0</sub><sup>2</sup></var> + 
+						<var>2a</var>(<var>x<sub>f</sub></var> - 
+						<var>x<sub>0</sub></var>)
+				</b>
+			</button>
+			<br>
+			
+			<!--Input boxes-->
+			<!--Equation 2-->
+			<label for="numx2"><var>x</var> = </label>
+		    <input type="number" id=numx2 value=null style="width:50px;"></input> <br>
+		    <label for="numv02"><var>v<sub>0</sub></var> = </label>
+		    <input type="number" id=numv02 value=null style="width:50px;"></input> <br>
+			<label for="numa2"><var>a</var> = </label>
+		    <input type="number" id=numa2 value=null style="width:50px;"></input> <br>
+			<label for="numt2"><var>t</var> = </label>
+		    <input type="number" id=numt2 value=null style="width:50px;"></input> <br>
+
 		  <p>Something</p>
 		</div>
 
@@ -100,6 +132,19 @@
 			  }
 			  document.getElementById(cityName).style.display = "block";
 			  evt.currentTarget.className += " active";
+			}
+			
+			function show(...inputs) {		
+				var btn = null;
+				for(var i of boxes) {
+					if(btn == null) {
+						i.style.display = "none";
+						btn = true;
+
+					} else {
+						i.style.display = "inline";
+						}
+				}
 			}
 		</script>
 		   
