@@ -105,8 +105,8 @@
 				<br>	
 				<label for="x0x2"><var>x</var> = </label>
 				<input type="number" id=x0x2 value=null style="width:50px;"></input> <br>
-				<label for="numv02"><var>v<sub>0</sub></var> = </label>
-				<input type="x0v02" id=x0v02 value=null style="width:50px;"></input> <br>
+				<label for="x0v02"><var>v<sub>0</sub></var> = </label>
+				<input type="number" id=x0v02 value=null style="width:50px;"></input> <br>
 				<label for="x0a2"><var>a</var> = </label>
 				<input type="number" id=x0a2 value=null style="width:50px;"></input> <br>
 				<label for="x0t2"><var>t</var> = </label>
@@ -138,7 +138,7 @@
 				<button type="button" onclick="calculate('x0', 'E3')">Calculate</button>
 			</div>
 
-		  <p id="answer"><var>x<sub>0</sub></var> = </p>
+		  <p id="output"><var>x<sub>0</sub></var> = </p>
 		</div>
 		
 		<div id="v0" class="tabcontent" style="background-color:#E9E9E9">
@@ -167,22 +167,6 @@
 		</div>
 
 		<script>
-			// variables
-			const SolvingFor = {
-				X0, 
-				X, 
-				V0,
-				V, 
-				A, 
-				T
-			}
-			
-			const Equation = {
-				E1,
-				E2,
-				E3
-			}
-		
 			// visuals that have nothing to do with calculating physics stuff
 			function openTab(evt, variable) {
 			  var i, tabcontent, tablinks;
@@ -205,84 +189,70 @@
 			
 			// Actual Calculation stuff
 			function calculate(answer, equation) {
-				switch(answer) {
-					case x0:
-						switch(equation) {
-							case E2:
-								// get variable values
-								var x = document.getElementById("x0x2");
-								var v0 = document.getElementById("x0v02");
-								var a = document.getElementById("x0a2");
-								var t = document.getElementById("x0t2");
+				if(answer == 'x0') {
+					if(equation.localeCompare('E2') == 0) {
+						// get variable values
+						var x = document.getElementById("x0x2").value;
+						var v0 = document.getElementById("x0v02").value;
+						var a = document.getElementById("x0a2").value;
+						var t = document.getElementById("x0t2").value;
+							
+						// calculate answer
+						var solution = x - (v0 * t + 0.5 * a * Math.pow(t, 2));
+
+						// output answer
+						document.getElementById("output").value = solution;
+					} else if (equation.localeCompare('E3') == 0) {
 								
-								// calculate answer
-								var answer = x - (v0 * t + 0.5 * a * Math.pow(t, 2));
-								
-								// output answer
-								document.getElementById("answer").value = answer;
-								break;
-							case E2:
-								break;
-							default:
-								window.alert(answer + " " + equation + "something wrong");
-						}
-						break;
-					case x:
-						switch(equation) {
-							case E2:
-								break;
-							case E2:
-								break;
-							default:
-							window.alert(answer + " " + equation + "something wrong");
-						}
-						break;
-					case v0:
-						switch(equation) {
-							case E1:
-								break;
-							case E2:
-								break;
-							case E3:
-								break:
-							default:
-							window.alert(answer + " " + equation + "something wrong");
-						}
-						break;
-					case v:
-						switch(equation) {
-							case E1:
-								break;
-							case E3:
-								break:
-							default:
-							window.alert(answer + " " + equation + "something wrong");
-						}
-						break;
-					case a:
-						switch(equation) {
-							case E1:
-								break;
-							case E2:
-								break;
-							case E3:
-								break:
-							default:
-							window.alert(answer + " " + equation + "something wrong");
-						}
-						break;
-					case t:
-						switch(equation) {
-							case E1:
-								break;
-							case E2:
-								break;
-							default:
-							window.alert(answer + " " + equation + "something wrong");
-						}
-						break;
-					default:
+					} else {
 						window.alert(answer + " " + equation + "something wrong");
+					}
+				} else if (answer == 'x') {
+					if(equation.localeCompare('E2') == 0) {
+						
+					} else if(equation.localeCompare('E3') == 0) {
+					
+					} else {
+						window.alert(answer + " " + equation + "something wrong");
+					}
+				} else if (answer == 'v0') {
+					if(equation.localeCompare('E1') == 0) {
+						
+					} else if(equation.localeCompare('E2') == 0) {
+						
+					} else if(equation.localeCompare('E3') == 0) {
+							
+					} else {
+						window.alert(answer + " " + equation + "something wrong");
+					}
+				} else if(answer == 'v') {
+					if (equation.localeCompare('E1') == 0) {
+					
+					} else if (equation.localeCompare('E3') == 0) {
+					
+					} else {
+						window.alert(answer + " " + equation + "something wrong");
+					}
+				} else if(answer == 'a') {
+					if(equation.localeCompare('E1') == 0) {
+					
+					} else if (equation.localeCompare('E2') == 0) {
+					
+					} else if(equation.localeCompare('E3') == 0) {
+						
+					} else {
+						window.alert(answer + " " + equation + "something wrong");
+					}
+				} else if(answer == 't') {
+					if(equation.localeCompare('E1') == 0) {
+					
+					} else if (equation.localeCompare('E2') == 0) {
+					
+					} else {
+							window.alert(answer + " " + equation + "something wrong");
+					}
+				} else {
+					window.alert(answer + " " + equation + "something wrong");
 				}
 			}
 			
