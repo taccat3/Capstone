@@ -3,51 +3,15 @@
 	<head>
 		<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, inital-scale=1">
+			<link rel="stylesheet" href='capstone.css'>
 			<title>Kinematics Calculator</title>
 		<style>
-			body {font-family: Arial;}
-
-			/* Style the tab */
-			.tab {
-			  overflow: hidden;
-			  border: 1px solid #ccc;
-			  background-color: #f1f1f1;
-			}
-
-			/* Style the buttons inside the tab */
-			.tab button {
-			  background-color: inherit;
-			  float: left;
-			  border: none;
-			  outline: none;
-			  cursor: pointer;
-			  padding: 14px 16px;
-			  transition: 0.3s;
-			  font-size: 17px;
-			}
-
-			/* Change background color of buttons on hover */
-			.tab button:hover {
-			  background-color: #ddd;
-			}
-
-			/* Create an active/current tablink class */
-			.tab button.active {
-			  background-color: #ccc;
-			}
-
-			/* Style the tab content */
-			.tabcontent {
-			  display: none;
-			  padding: 6px 12px;
-			  border: 1px solid #ccc;
-			  border-top: none;
-			}
+			
 		</style>
 		
 	</head>
 	<body background="../light_blue.png">
-
+		<br>
 		<table>
 			<tr>
 				<td>
@@ -166,103 +130,8 @@
 		  <p>Something</p>
 		</div>
 
-		<script>
-			// visuals that have nothing to do with calculating physics stuff
-			function openTab(evt, variable) {
-			  var i, tabcontent, tablinks;
-			  tabcontent = document.getElementsByClassName("tabcontent");
-			  for (i = 0; i < tabcontent.length; i++) {
-				tabcontent[i].style.display = "none";
-			  }
-			  tablinks = document.getElementsByClassName("tablinks");
-			  for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-			  }
-			  document.getElementById(variable).style.display = "block";
-			  evt.currentTarget.className += " active";
-			}
+		<script src="capstone.js">
 			
-			function show(boxes) {		
-				document.getElementById("buttons").style.display = "none";
-				document.getElementById(boxes.id).style.display = "inline";
-			}
-			
-			// Actual Calculation stuff
-			function calculate(answer, equation) {
-				if(answer == 'x0') {
-					if(equation.localeCompare('E2') == 0) {
-						// get variable values
-						var x = document.getElementById("x0x2").value;
-						var v0 = document.getElementById("x0v02").value;
-						var a = document.getElementById("x0a2").value;
-						var t = document.getElementById("x0t2").value;
-							
-						// calculate answer
-						var solution = x - (v0 * t + 0.5 * a * Math.pow(t, 2));
-
-						// output answer
-						document.getElementById("output").value = solution;
-					} else if (equation.localeCompare('E3') == 0) {
-								
-					} else {
-						window.alert(answer + " " + equation + "something wrong");
-					}
-				} else if (answer == 'x') {
-					if(equation.localeCompare('E2') == 0) {
-						
-					} else if(equation.localeCompare('E3') == 0) {
-					
-					} else {
-						window.alert(answer + " " + equation + "something wrong");
-					}
-				} else if (answer == 'v0') {
-					if(equation.localeCompare('E1') == 0) {
-						
-					} else if(equation.localeCompare('E2') == 0) {
-						
-					} else if(equation.localeCompare('E3') == 0) {
-							
-					} else {
-						window.alert(answer + " " + equation + "something wrong");
-					}
-				} else if(answer == 'v') {
-					if (equation.localeCompare('E1') == 0) {
-					
-					} else if (equation.localeCompare('E3') == 0) {
-					
-					} else {
-						window.alert(answer + " " + equation + "something wrong");
-					}
-				} else if(answer == 'a') {
-					if(equation.localeCompare('E1') == 0) {
-					
-					} else if (equation.localeCompare('E2') == 0) {
-					
-					} else if(equation.localeCompare('E3') == 0) {
-						
-					} else {
-						window.alert(answer + " " + equation + "something wrong");
-					}
-				} else if(answer == 't') {
-					if(equation.localeCompare('E1') == 0) {
-					
-					} else if (equation.localeCompare('E2') == 0) {
-					
-					} else {
-							window.alert(answer + " " + equation + "something wrong");
-					}
-				} else {
-					window.alert(answer + " " + equation + "something wrong");
-				}
-			}
-			
-			window.onload = function() {
-				document.getElementById("numx2").value = '';
-				document.getElementById("numv02").value = '';
-				document.getElementById("numa2").value = '';
-				document.getElementById("numt2").value = '';
-			}
-		</script>
 		   
 	</body>
 </html> 
