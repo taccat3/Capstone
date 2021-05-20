@@ -39,5 +39,5 @@ body {font-family: Arial;}
 
 			/* Style the tables border*/
 			.table {
-				border: 0px;
+				border: none;
 			}
