@@ -13,9 +13,9 @@
 			  evt.currentTarget.className += " active";
 			}
 			
-			function show(boxes) {		
-				document.getElementById("buttons").style.display = "none";
-				document.getElementById(boxes.id).style.display = "inline";
+			function showHide(show, hide) {		
+				document.getElementById(hide.id).style.display = "none";
+				document.getElementById(show.id).style.display = "inline";
 			}
 			
 			// Actual Calculation stuff

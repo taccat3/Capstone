@@ -35,11 +35,11 @@
 		<div id="x0" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Initial Position, x<sub>0</sub></h3>
 
-		  <div id="buttons" style="display:inline">
+		  <div id="btnx0" style="display:inline">
 			Choose equation:
 			<br>
 			<!-- Equation 2 -->
-			   <button type=button id="eq2x0" onclick="show(x0Eq2)">
+			   <button type=button id="eq2x0" onclick="showHide(btnx0, x0Eq2)">
 					<b>
 						<var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> + 
 							<var>v<sub>0</sub>t</var> + 
@@ -47,7 +47,7 @@
 					</b>
 				</button>
 				<!--Equation 3-->
-				<button type=button id="eq3x0" onclick="show(x0Eq3)">
+				<button type=button id="eq3x0" onclick="showHide(btnx0, x0Eq3)">
 					<b>
 						<var>v<sub>f</sub><sup>2</sup></var> = 
 							<var>v<sub>0</sub><sup>2</sup></var> + 
@@ -78,6 +78,7 @@
 				<br>
 				
 				<button type="button" onclick="calculate('x0', 'E2')">Calculate</button>
+				<button type="button" onclick="showHide(x0, x0Eq2)">Back</button>
 			</div>
 			
 			<div id="x0Eq3" style="display:none">
@@ -99,6 +100,7 @@
 				<br>
 				
 				<button type="button" onclick="calculate('x0', 'E3')">Calculate</button>
+				<button type="button" onclick="showHide(x0, x0Eq3)">Back</button>
 			</div>
 
 		  <p id="output"><var>x<sub>0</sub></var> = </p>
