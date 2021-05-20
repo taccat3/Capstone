@@ -126,6 +126,14 @@
 		 <div id="btnv0" style="display:inline">
 		 		Choose equation:
 		 		<br>
+				<!-- Equation 1 -->
+				<button type=button id="eq1v0" onclick="showHide(v0Eq1, btnv0)">
+				 <b>
+					 <var>v<sub>f</sub></var> =
+		 				<var>v<sub>0</sub></var> +
+		 				<var>at</var>
+				 </b>
+			 </button>
 		 		<!-- Equation 2 -->
 				<button type=button id="eq2v0" onclick="showHide(v0Eq2, btnv0)">
 				 <b>
@@ -147,6 +155,26 @@
 		 </div>
 
 		 <!--Input boxes-->
+		 <!--Equation 1 Inputs -->
+		 <div id="v0Eq1" style="display:none">
+		 	<var>v<sub>f</sub></var> =
+				<var>v<sub>0</sub></var> +
+				<var>at</var>
+
+		 	<br>
+		  <label for="v0v1"><var>v</var> = </label>
+		 	<input type="number" id=v0v1 value=null style="width:50px;"></input> <br>
+		 	<label for="v0a1"><var>a</var> = </label>
+		 	<input type="number" id=v0a1 value=null style="width:50px;"></input> <br>
+		 	<label for="v0t11"><var>t</var> = </label>
+		 	<input type="number" id=v0t1 value=null style="width:50px;"></input> <br>
+
+		 	<br>
+
+		 	<button type="button" onclick="calculate('v0', 'E1')">Calculate</button>
+		 	<button type="button" onclick="showHide(btnv0, v0Eq1)">Back</button>
+		 </div>
+
 		 <!--Equation 2 Inputs -->
 		 <div id="v0Eq2" style="display:none">
 			 <var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> +
@@ -180,7 +208,7 @@
 			 <label for="v0v3"><var>v</var> = </label>
 			 <input type="number" id=v0v3 value=null style="width:50px;"></input> <br>
 			 <label for="v0x03"><var>x<sub>0</sub></var> = </label>
-			 <input type="number" id=v0v03 value=null style="width:50px;"></input> <br>
+			 <input type="number" id=v0x03 value=null style="width:50px;"></input> <br>
 			 <label for="v0a3"><var>a</var> = </label>
 			 <input type="number" id=v0a3 value=null style="width:50px;"></input> <br>
 			 <label for="v0x3"><var>x</var> = </label>
@@ -301,8 +329,89 @@
 		 <!-- style="background-color:#E9E9E9" -->
 		<div id="v" class="tabcontent">
 		  <h3>Velocity, v</h3>
-		  <p>Something</p>
-		</div>
+
+			<div id="btnv" style="display:inline">
+				Choose equation:
+				<br>
+				<!-- Equation 1 -->
+				<button type=button id="eq1v" onclick="showHide(vEq1, btnv)">
+				 <b>
+					 <var>v<sub>f</sub></var> =
+		 				<var>v<sub>0</sub></var> +
+		 				<var>at</var>
+				 </b>
+			 </button>
+			 <!--Equation 3-->
+			 <button type=button id="eq3v" onclick="showHide(vEq3, btnv)">
+				 <b>
+					 <var>v<sub>f</sub><sup>2</sup></var> =
+						 <var>v<sub>0</sub><sup>2</sup></var> +
+						 <var>2a</var>(<var>x<sub>f</sub></var> -
+						 <var>x<sub>0</sub></var>)
+				 </b>
+			 </button>
+			 <br>
+			</div>
+
+			<!--Input boxes-->
+			<!--Equation 1 Inputs -->
+		  <div id="vEq1" style="display:none">
+			  <var>v<sub>f</sub></var> =
+					<var>v<sub>0</sub></var> +
+					<var>at</var>
+
+				<br>
+				<label for="vv01"><var>v<sub>0</sub></var> = </label>
+				<input type="number" id=vv01 value=null style="width:50px;"></input> <br>
+				<label for="va1"><var>a</var> = </label>
+				<input type="number" id=va1 value=null style="width:50px;"></input> <br>
+				<label for="vt1"><var>t</var> = </label>
+				<input type="number" id=vt1 value=null style="width:50px;"></input> <br>
+
+				<br>
+
+				<button type="button" onclick="calculate('v', 'E1')">Calculate</button>
+				<button type="button" onclick="showHide(btnv, vEq1)">Back</button>
+		 </div>
+			<!-- Equation 3 Inputs -->
+			<div id="vEq3" style="display:none">
+			 <var>v<sub>f</sub><sup>2</sup></var> =
+				 <var>v<sub>0</sub><sup>2</sup></var> +
+				 <var>2a</var>(<var>x<sub>f</sub></var> -
+				 <var>x<sub>0</sub></var>)
+
+			 <br>
+			 <label for="vv03"><var>v<sub>0</sub></var> = </label>
+			 <input type="number" id=vv03 value=null style="width:50px;"></input> <br>
+			 <label for="vx03"><var>x<sub>0</sub></var> = </label>
+			 <input type="number" id=vx03 value=null style="width:50px;"></input> <br>
+			 <label for="va3"><var>a</var> = </label>
+			 <input type="number" id=va3 value=null style="width:50px;"></input> <br>
+			 <label for="vx3"><var>x</var> = </label>
+			 <input type="number" id=vx3 value=null style="width:50px;"></input> <br>
+
+			 <br>
+
+			 <button type="button" onclick="calculate('v', 'E3')">Calculate</button>
+			 <button type="button" onclick="showHide(btnv, vEq3)">Back</button>
+			</div>
+
+			<!-- Output Formatting -->
+			<br>
+			<table>
+			 <tr>
+				 <td>
+					 <label for="outputv"><var>v</var> = </label>
+				 </td>
+				 <td>
+					 <p id="outputv">?</p>
+				 </td>
+				 <td>
+					 <label for="outputv">m/s</label>
+				 </td>
+			 </tr>
+			</table>
+			</div>		</div>
 
 		<!-- ACCELERATION -->
 		 <!-- style="background-color:#E9E9E9" -->

@@ -78,9 +78,9 @@
 				} else if (answer == 'v0') {
 					if(equation.localeCompare('E1') == 0) {
 						// get variable values
-						var v = document.getElementById("v0v02").value;
-						var a = document.getElementById("v0a2").value;
-						var t = document.getElementById("v0t2").value;
+						var v = document.getElementById("v0v1").value;
+						var a = document.getElementById("v0a1").value;
+						var t = document.getElementById("v0t1").value;
 
 						// calculate answer
 						var solution = v - a * t;
@@ -96,12 +96,13 @@
 					} else if (equation.localeCompare('E3') == 0) {
 						// get variable values
 						var x = document.getElementById("v0x3").value;
-						var x0 = document.getElementById("v0v03").value;
+						var x0 = document.getElementById("v0x03").value;
 						var a = document.getElementById("v0a3").value;
 						var v = document.getElementById("v0v3").value;
 
 						// calculate answer
 						solution = Math.sqrt(Math.pow(v, 2) - 2 * a * (x - x0));
+
 
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
@@ -110,10 +111,22 @@
 					solution = Math.round(solution * 100) / 100;
 					document.getElementById("outputv0").innerHTML = solution;
 				} else if(answer == 'v') {
-					if (equation.localeCompare('E1') == 0) {
-
+					if(equation.localeCompare('E1') == 0) {
+						// get variable values
+						var v0 = document.getElementById("vv01").value;
+						var a = document.getElementById("va1").value;
+						var t = document.getElementById("vt1").value;
+						// calculate answer
+						var solution = Number(v0) + (a * t); // idk why i need to cast here
 					} else if (equation.localeCompare('E3') == 0) {
+						// get variable values
+						var x = document.getElementById("vx3").value;
+						var x0 = document.getElementById("vx03").value;
+						var a = document.getElementById("va3").value;
+						var v0 = document.getElementById("vv03").value;
 
+						// calculate answer
+						solution = Math.sqrt(Math.pow(v0, 2) + 2 * a * (x - x0));
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
 					}
