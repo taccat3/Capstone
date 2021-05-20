@@ -12,12 +12,12 @@
 			  document.getElementById(variable).style.display = "block";
 			  evt.currentTarget.className += " active";
 			}
-			
-			function showHide(show, hide) {		
-				document.getElementById(hide.id).style.display = "none";
+
+			function showHide(show, hide, block) {
 				document.getElementById(show.id).style.display = "inline";
+				document.getElementById(hide.id).style.display = "none";
 			}
-			
+
 			// Actual Calculation stuff
 			function calculate(answer, equation) {
 				if(answer == 'x0') {
@@ -27,58 +27,58 @@
 						var v0 = document.getElementById("x0v02").value;
 						var a = document.getElementById("x0a2").value;
 						var t = document.getElementById("x0t2").value;
-							
+
 						// calculate answer
 						var solution = x - (v0 * t + 0.5 * a * Math.pow(t, 2));
 
 						// output answer
 						document.getElementById("output").value = solution;
 					} else if (equation.localeCompare('E3') == 0) {
-								
+
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
 					}
 				} else if (answer == 'x') {
 					if(equation.localeCompare('E2') == 0) {
-						
+
 					} else if(equation.localeCompare('E3') == 0) {
-					
+
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
 					}
 				} else if (answer == 'v0') {
 					if(equation.localeCompare('E1') == 0) {
-						
+
 					} else if(equation.localeCompare('E2') == 0) {
-						
+
 					} else if(equation.localeCompare('E3') == 0) {
-							
+
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
 					}
 				} else if(answer == 'v') {
 					if (equation.localeCompare('E1') == 0) {
-					
+
 					} else if (equation.localeCompare('E3') == 0) {
-					
+
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
 					}
 				} else if(answer == 'a') {
 					if(equation.localeCompare('E1') == 0) {
-					
+
 					} else if (equation.localeCompare('E2') == 0) {
-					
+
 					} else if(equation.localeCompare('E3') == 0) {
-						
+
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
 					}
 				} else if(answer == 't') {
 					if(equation.localeCompare('E1') == 0) {
-					
+
 					} else if (equation.localeCompare('E2') == 0) {
-					
+
 					} else {
 							window.alert(answer + " " + equation + "something wrong");
 					}
@@ -86,7 +86,7 @@
 					window.alert(answer + " " + equation + "something wrong");
 				}
 			}
-			
+
 			window.onload = function() {
 				document.getElementById("numx2").value = '';
 				document.getElementById("numv02").value = '';
