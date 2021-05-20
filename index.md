@@ -5,9 +5,6 @@
 			<meta name="viewport" content="width=device-width, inital-scale=1">
 			<link rel="stylesheet" href='capstone.css'>
 			<title>Kinematics Calculator</title>
-		<style>
-
-		</style>
 
 	</head>
 	<body background="https://user-images.githubusercontent.com/66643794/119005729-b71a8e00-b95d-11eb-86db-157a04f3cb77.png">
