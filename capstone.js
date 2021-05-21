@@ -102,8 +102,6 @@
 
 						// calculate answer
 						solution = Math.sqrt(Math.pow(v, 2) - 2 * a * (x - x0));
-
-
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
 					}
@@ -135,11 +133,31 @@
 					document.getElementById("outputv").innerHTML = solution;
 				} else if(answer == 'a') {
 					if(equation.localeCompare('E1') == 0) {
+						// get variable values
+						var v = document.getElementById("av1").value;
+						var v0 = document.getElementById("av01").value;
+						var t = document.getElementById("at1").value;
 
+						// calculate answer
+						solution = (v - v0) / t;
 					} else if (equation.localeCompare('E2') == 0) {
+						// get variable values
+						var x = document.getElementById("ax2").value;
+						var x0 = document.getElementById("ax02").value;
+						var v0 = document.getElementById("av02").value;
+						var t = document.getElementById("at2").value;
 
+						// calculate answer
+						solution = (x - x0 - (v0 * t)) / (0.5 * Math.pow(t, 2));
 					} else if(equation.localeCompare('E3') == 0) {
+						// get variable values
+						var x = document.getElementById("v0x3").value;
+						var x0 = document.getElementById("v0x03").value;
+						var v0 = document.getElementById("av03").value;
+						var v = document.getElementById("v0v3").value;
 
+						// calculate answer
+						solution = (Math.pow(v, 2) - Math.pow(v0, 2)) / (2 * (x - x0));
 					} else {
 						window.alert(answer + " " + equation + "something wrong");
 					}
@@ -148,14 +166,39 @@
 					document.getElementById("outputa").innerHTML = solution;
 				} else if(answer == 't') {
 					if(equation.localeCompare('E1') == 0) {
+						// get variable values
+						var v = document.getElementById("tv1").value;
+						var v0 = document.getElementById("tv01").value;
+						var a = document.getElementById("ta1").value;
 
+						// calculate answer
+						solution = (v - v0) / a;
+						solution = Math.round(solution * 100) / 100;
 					} else if (equation.localeCompare('E2') == 0) {
+						// get variable values
+						var x = document.getElementById("tx2").value;
+						var x0 = document.getElementById("tx02").value;
+						var v0 = document.getElementById("tv02").value;
+						var a = document.getElementById("ta2").value;
 
+						// calculate answer
+						// won't work if t = imaginary number --> need error checking
+						if(Math.pow(v0, 2) - (4 * (0.5 * a) * (x0 - x)) < 0) {
+						  window.alert("Calculated imaginary time, only real values accepted");
+							return;
+						}
+						var op1 = ((-1 * v0) + Math.sqrt(Math.pow(v0, 2) - (4 * (0.5*a) * (x0 - x)))) / (2 * (0.5 * a)); // quadratic formula
+						var op2 = ((-1 * v0) - Math.sqrt(Math.pow(v0, 2) - (4 * (0.5*a) * (x0 - x)))) / (2 * (0.5 * a)); // quadratic formula
+
+						op1 = Math.round(op1 * 100) / 100;
+						op2 = Math.round(op2 * 100) / 100;
+
+						solution = op1 + ", " + op2;
 					} else {
 							window.alert(answer + " " + equation + "something wrong");
 					}
+					
 					// output the answer
-					solution = Math.round(solution * 100) / 100;
 					document.getElementById("outputt").innerHTML = solution;
 				} else {
 					window.alert(answer + " " + equation + "something wrong");

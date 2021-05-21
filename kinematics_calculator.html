@@ -166,7 +166,7 @@
 		 	<input type="number" id=v0v1 value=null style="width:50px;"></input> <br>
 		 	<label for="v0a1"><var>a</var> = </label>
 		 	<input type="number" id=v0a1 value=null style="width:50px;"></input> <br>
-		 	<label for="v0t11"><var>t</var> = </label>
+		 	<label for="v0t1"><var>t</var> = </label>
 		 	<input type="number" id=v0t1 value=null style="width:50px;"></input> <br>
 
 		 	<br>
@@ -417,15 +417,206 @@
 		 <!-- style="background-color:#E9E9E9" -->
 		<div id="a" class="tabcontent">
 		  <h3>Acceleration, a</h3>
-		  <p>Something</p>
-		</div>
+
+			<div id="btna" style="display:inline">
+		 		Choose equation:
+		 		<br>
+		 		<!-- Equation 1 -->
+		 		<button type=button id="eq1a" onclick="showHide(aEq1, btna)">
+		 		 <b>
+		 			 <var>v<sub>f</sub></var> =
+		 				<var>v<sub>0</sub></var> +
+		 				<var>at</var>
+		 		 </b>
+		 	 </button>
+		 		<!-- Equation 2 -->
+		 		<button type=button id="eq2a" onclick="showHide(aEq2, btna)">
+		 		 <b>
+		 			 <var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> +
+		 				 <var>v<sub>0</sub>t</var> +
+		 				 <var><sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup></var>
+		 		 </b>
+		 	 </button>
+		 	 <!--Equation 3-->
+		 	 <button type=button id="eq3a" onclick="showHide(aEq3, btna)">
+		 		 <b>
+		 			 <var>v<sub>f</sub><sup>2</sup></var> =
+		 				 <var>v<sub>0</sub><sup>2</sup></var> +
+		 				 <var>2a</var>(<var>x<sub>f</sub></var> -
+		 				 <var>x<sub>0</sub></var>)
+		 		 </b>
+		 	 </button>
+		 	 <br>
+		  </div>
+
+		  <!--Input boxes-->
+		  <!--Equation 1 Inputs -->
+		  <div id="aEq1" style="display:none">
+		 	 <var>v<sub>f</sub></var> =
+		 		<var>v<sub>0</sub></var> +
+		 		<var>at</var>
+
+			 	<br>
+			 	<label for="av1"><var>v</var> = </label>
+			 	<input type="number" id=av1 value=null style="width:50px;"></input> <br>
+			 	<label for="av01"><var>v<sub>0</sub></var> = </label>
+			 	<input type="number" id=av01 value=null style="width:50px;"></input> <br>
+			 	<label for="at1"><var>t</var> = </label>
+			 	<input type="number" id=at1 value=null style="width:50px;"></input> <br>
+
+			 	<br>
+
+			 	<button type="button" onclick="calculate('a', 'E1')">Calculate</button>
+			 	<button type="button" onclick="showHide(btna, aEq1)">Back</button>
+		  </div>
+
+		  <!--Equation 2 Inputs -->
+		  <div id="aEq2" style="display:none">
+		 	 <var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> +
+		 		 <var>v<sub>0</sub>t</var> +
+		 		 <var><sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup></var>
+
+		 	 <br>
+		 	 <label for="ax2"><var>x</var> = </label>
+		 	 <input type="number" id=ax2 value=null style="width:50px;"></input> <br>
+		 	 <label for="ax02"><var>x<sub>0</sub></var> = </label>
+		 	 <input type="number" id=ax02 value=null style="width:50px;"></input> <br>
+		 	 <label for="av02"><var>v<sub>0</sub></var> = </label>
+		 	 <input type="number" id=av02 value=null style="width:50px;"></input> <br>
+		 	 <label for="at2"><var>t</var> = </label>
+		 	 <input type="number" id=at2 value=null style="width:50px;"></input> <br>
+
+		 	 <br>
+
+		 	 <button type="button" onclick="calculate('a', 'E2')">Calculate</button>
+		 	 <button type="button" onclick="showHide(btna, aEq2)">Back</button>
+		  </div>
+
+		  <!-- Equation 3 Inputs -->
+		  <div id="aEq3" style="display:none">
+		 	 <var>v<sub>f</sub><sup>2</sup></var> =
+		 		 <var>v<sub>0</sub><sup>2</sup></var> +
+		 		 <var>2a</var>(<var>x<sub>f</sub></var> -
+		 		 <var>x<sub>0</sub></var>)
+
+		 	 <br>
+		 	 <label for="av3"><var>v</var> = </label>
+		 	 <input type="number" id=av3 value=null style="width:50px;"></input> <br>
+		 	 <label for="ax03"><var>x<sub>0</sub></var> = </label>
+		 	 <input type="number" id=ax03 value=null style="width:50px;"></input> <br>
+		 	 <label for="av03"><var>v<sub>0</sub></var> = </label>
+		 	 <input type="number" id=av03 value=null style="width:50px;"></input> <br>
+		 	 <label for="ax3"><var>x</var> = </label>
+		 	 <input type="number" id=ax3 value=null style="width:50px;"></input> <br>
+
+		 	 <br>
+
+		 	 <button type="button" onclick="calculate('a', 'E3')">Calculate</button>
+		 	 <button type="button" onclick="showHide(btna, aEq3)">Back</button>
+		  </div>
+
+		  <!-- Output Formatting -->
+		  <br>
+		  <table>
+		 	 <tr>
+		 		 <td>
+		 			 <label for="outputa"><var>a</var> = </label>
+		 		 </td>
+		 		 <td>
+		 			 <p id="outputa">?</p>
+		 		 </td>
+		 		 <td>
+		 			 <label for="outputa">m/s<sup>2</sup></label>
+		 		 </td>
+		 	 </tr>
+		  </table>
+		 </div>		</div>
 
 		<!-- TIME -->
 		 <!-- style="background-color:#E9E9E9" -->
 		<div id="t" class="tabcontent">
 		  <h3>Time, t</h3>
-		  <p>Something</p>
-		</div>
+			<div id="btnt" style="display:inline">
+		 		Choose equation:
+		 		<br>
+		 		<!-- Equation 1 -->
+		 		<button type=button id="eq1t" onclick="showHide(tEq1, btnt)">
+		 		 <b>
+		 			 <var>v<sub>f</sub></var> =
+		 				<var>v<sub>0</sub></var> +
+		 				<var>at</var>
+		 		 </b>
+		 	 </button>
+		 		<!-- Equation 2 -->
+		 		<button type=button id="eq2t" onclick="showHide(tEq2, btnt)">
+		 		 <b>
+		 			 <var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> +
+		 				 <var>v<sub>0</sub>t</var> +
+		 				 <var><sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup></var>
+		 		 </b>
+		 	 </button>
+		 	 <br>
+		  </div>
+
+		  <!--Input boxes-->
+		  <!--Equation 1 Inputs -->
+		  <div id="tEq1" style="display:none">
+		  	<var>v<sub>f</sub></var> =
+		 		<var>v<sub>0</sub></var> +
+		 		<var>at</var>
+
+			 	<br>
+			 	<label for="tv1"><var>v</var> = </label>
+			 	<input type="number" id=tv1 value=null style="width:50px;"></input> <br>
+			 	<label for="ta1"><var>a</var> = </label>
+			 	<input type="number" id=ta1 value=null style="width:50px;"></input> <br>
+			 	<label for="tv01"><var>v<sub>0</sub></var> = </label>
+			 	<input type="number" id=tv01 value=null style="width:50px;"></input> <br>
+
+			 	<br>
+
+			 	<button type="button" onclick="calculate('t', 'E1')">Calculate</button>
+			 	<button type="button" onclick="showHide(btnt, tEq1)">Back</button>
+			  </div>
+
+		  <!--Equation 2 Inputs -->
+		  <div id="tEq2" style="display:none">
+		 	 <var>x<sub>f</sub></var> = <var>x<sub>0</sub></var> +
+		 		 <var>v<sub>0</sub>t</var> +
+		 		 <var><sup>1</sup>&frasl;<sub>2</sub>at<sup>2</sup></var>
+
+		 	 <br>
+		 	 <label for="tx2"><var>x</var> = </label>
+		 	 <input type="number" id=tx2 value=null style="width:50px;"></input> <br>
+		 	 <label for="tx02"><var>x<sub>0</sub></var> = </label>
+		 	 <input type="number" id=tx02 value=null style="width:50px;"></input> <br>
+		 	 <label for="ta2"><var>a</var> = </label>
+		 	 <input type="number" id=ta2 value=null style="width:50px;"></input> <br>
+		 	 <label for="tv02"><var>v<sub>0</sub></var> = </label>
+		 	 <input type="number" id=tv02 value=null style="width:50px;"></input> <br>
+
+		 	 <br>
+
+		 	 <button type="button" onclick="calculate('t', 'E2')">Calculate</button>
+		 	 <button type="button" onclick="showHide(btnt, tEq2)">Back</button>
+		  </div>
+
+		  <!-- Output Formatting -->
+		  <br>
+		  <table>
+		 	 <tr>
+		 		 <td>
+		 			 <label for="outputt"><var>t</var> = </label>
+		 		 </td>
+		 		 <td>
+		 			 <p id="outputt">?</p>
+		 		 </td>
+		 		 <td>
+		 			 <label for="outputt">s</label>
+		 		 </td>
+		 	 </tr>
+		  </table>
+		 </div>		</div>
 
 		<script src="capstone.js"> </script>
 
