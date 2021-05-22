@@ -75,39 +75,7 @@
 					// output the answer
 					solution = Math.round(solution * 100) / 100;
 					document.getElementById("outputx").innerHTML = solution;
-				} else if (answer == 'v0') {
-					if(equation.localeCompare('E1') == 0) {
-						// get variable values
-						var v = document.getElementById("v0v1").value;
-						var a = document.getElementById("v0a1").value;
-						var t = document.getElementById("v0t1").value;
-
-						// calculate answer
-						var solution = v - a * t;
-					} else if(equation.localeCompare('E2') == 0) {
-						// get variable values
-						var x = document.getElementById("v0x2").value;
-						var x0 = document.getElementById("v0x02").value;
-						var a = document.getElementById("v0a2").value;
-						var t = document.getElementById("v0t2").value;
-
-						// calculate answer
-						var solution = (x - x0 - 0.5 * a * Math.pow(t, 2)) / t;
-					} else if (equation.localeCompare('E3') == 0) {
-						// get variable values
-						var x = document.getElementById("v0x3").value;
-						var x0 = document.getElementById("v0x03").value;
-						var a = document.getElementById("v0a3").value;
-						var v = document.getElementById("v0v3").value;
-
-						// calculate answer
-						solution = Math.sqrt(Math.pow(v, 2) - 2 * a * (x - x0));
-					} else {
-						window.alert(answer + " " + equation + "something wrong");
-					}
-					// output the answer
-					solution = Math.round(solution * 100) / 100;
-					document.getElementById("outputv0").innerHTML = solution; 
+				} else if (answer == 'v0') name
 				} else if(answer == 'v') {
 					if(equation.localeCompare('E1') == 0) {
 						// get variable values
@@ -217,7 +185,7 @@
 			function getValue(box) {
 				var input = document.getElementById(box);
 				if(isEmpty(input)) {
-					alert("No " + input.id + " input");
+					alert("No " + input.name + " input");
 				} else {
 					x = x.value;
 				}
