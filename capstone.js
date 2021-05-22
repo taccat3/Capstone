@@ -26,7 +26,7 @@
 				if(answer == 'x0') {
 					if(equation.localeCompare('E2') == 0) {
 						// get variable values
-						var x = document.getElementById("x0x2").value;
+						var x = getValue("x0x2");
 						var v0 = document.getElementById("x0v02").value;
 						var a = document.getElementById("x0a2").value;
 						var t = document.getElementById("x0t2").value;
@@ -107,7 +107,7 @@
 					}
 					// output the answer
 					solution = Math.round(solution * 100) / 100;
-					document.getElementById("outputv0").innerHTML = solution;
+					document.getElementById("outputv0").innerHTML = solution; 
 				} else if(answer == 'v') {
 					if(equation.localeCompare('E1') == 0) {
 						// get variable values
@@ -197,7 +197,7 @@
 					} else {
 							window.alert(answer + " " + equation + "something wrong");
 					}
-					
+
 					// output the answer
 					document.getElementById("outputt").innerHTML = solution;
 				} else {
@@ -212,6 +212,25 @@
 				btn.value = "v = v0 + at";
 				btn.style.display = "inline";
 				document.head.appendChild(btn);
+			}
+
+			function getValue(box) {
+				var input = document.getElementById(box);
+				if(isEmpty(input)) {
+					alert("No " + input.id + " input");
+				} else {
+					x = x.value;
+				}
+
+				return input;
+			}
+
+			function isEmpty(box) {
+				if(box.value.length == 0) {
+					return true;
+				} else {
+					return false;
+				}
 			}
 
 			// This doesn't work but honestly I just don't care
