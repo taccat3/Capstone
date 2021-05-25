@@ -7,8 +7,7 @@
 
 	</head>
 	<body onload="reset()" background="https://user-images.githubusercontent.com/66643794/119005729-b71a8e00-b95d-11eb-86db-157a04f3cb77.png">
-
-	<table>
+		<table style="none">
 			<tr>
 				<td>
 					<h1>Kinematics Calculator</h1>
@@ -20,7 +19,7 @@
 		</table>
 		<p>Click on the buttons inside the tabbed menu:</p>
 
-		<div class="tab">
+		<div class="tab" style="background-color:#E9E9E9">
 		  <button class="tablinks" onclick="openTab(event, 'x0')">Find Initial Position</button>
 		  <button class="tablinks" onclick="openTab(event, 'v0')">Find Initial Velocity</button>
 		  <button class="tablinks" onclick="openTab(event, 'x')">Find Position</button>
@@ -30,8 +29,7 @@
 		</div>
 
 		<!-- INITIAL POSITION -->
-		<!-- style="background-color:#E9E9E9 -->
-		<div id="x0" class="tabcontent">
+		<div id="x0" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Initial Position, x<sub>0</sub></h3>
 
 		  <div id="btnx0" style="display:inline">
@@ -120,7 +118,7 @@
 
 		<!-- INITIAL VELOCITY -->
 		 <!-- style="background-color:#E9E9E9" -->
-		<div id="v0" class="tabcontent">
+		<div id="v0" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Initial Velocity, v<sub>0</sub></h3>
 
 		 <div id="btnv0" style="display:inline">
@@ -240,7 +238,7 @@
 
 		<!-- POSITION -->
 		<!-- style="background-color:#E9E9E9" -->
-		<div id="x" class="tabcontent" >
+		<div id="x" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Position, x</h3>
 			<div id="btnx" style="display:inline">
 			Choose equation:
@@ -327,7 +325,7 @@
 
 		<!-- VELOCITY -->
 		 <!-- style="background-color:#E9E9E9" -->
-		<div id="v" class="tabcontent">
+		<div id="v" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Velocity, v</h3>
 
 			<div id="btnv" style="display:inline">
@@ -415,7 +413,7 @@
 
 		<!-- ACCELERATION -->
 		 <!-- style="background-color:#E9E9E9" -->
-		<div id="a" class="tabcontent">
+		<div id="a" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Acceleration, a</h3>
 
 			<div id="btna" style="display:inline">
@@ -534,7 +532,7 @@
 
 		<!-- TIME -->
 		 <!-- style="background-color:#E9E9E9" -->
-		<div id="t" class="tabcontent">
+		<div id="t" class="tabcontent" style="background-color:#E9E9E9">
 		  <h3>Time, t</h3>
 			<div id="btnt" style="display:inline">
 		 		Choose equation:
