@@ -9,7 +9,7 @@
 	<body onload="reset()">
 		<!-- background="https://user-images.githubusercontent.com/66643794/119005729-b71a8e00-b95d-11eb-86db-157a04f3cb77.png" -->
 
-		Hi Angelina, you're on the internet! <br>
+		I hold the power! Fear Me! <br>
 		<table>
 			<tr>
 				<td>
