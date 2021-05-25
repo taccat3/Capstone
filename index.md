@@ -66,13 +66,13 @@
 
 				<br>
 				<label for="x0x2"><var>x</var> = </label>
-				<input type="number" id=x0x2 value=null name= "x" style="width:50px;"></input> <br>
+				<input type="number" id=x0x2 value=null style="width:50px;"></input> <br>
 				<label for="x0v02"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=x0v02 value=null name="v0" style="width:50px;"></input> <br>
+				<input type="number" id=x0v02 value=null style="width:50px;"></input> <br>
 				<label for="x0a2"><var>a</var> = </label>
-				<input type="number" id=x0a2 value=null name="a" style="width:50px;"></input> <br>
+				<input type="number" id=x0a2 value=null style="width:50px;"></input> <br>
 				<label for="x0t2"><var>t</var> = </label>
-				<input type="number" id=x0t2 value=null name="t" style="width:50px;"></input> <br>
+				<input type="number" id=x0t2 value=null style="width:50px;"></input> <br>
 
 				<br>
 
@@ -88,13 +88,13 @@
 
 				<br>
 				<label for="x0v3"><var>v</var> = </label>
-				<input type="number" id=x0v3 value=null name="v" style="width:50px;"></input> <br>
+				<input type="number" id=x0v3 value=null style="width:50px;"></input> <br>
 				<label for="x0v03"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=x0v03 value=null name="v0" style="width:50px;"></input> <br>
+				<input type="number" id=x0v03 value=null style="width:50px;"></input> <br>
 				<label for="x0a3"><var>a</var> = </label>
-				<input type="number" id=x0a3 value=null name="a" style="width:50px;"></input> <br>
+				<input type="number" id=x0a3 value=null style="width:50px;"></input> <br>
 				<label for="x0x3"><var>x</var> = </label>
-				<input type="number" id=x0x3 value=null name="t" style="width:50px;"></input> <br>
+				<input type="number" id=x0x3 value=null style="width:50px;"></input> <br>
 
 				<br>
 
@@ -163,11 +163,11 @@
 
 		 	<br>
 		  <label for="v0v1"><var>v</var> = </label>
-		 	<input type="number" id=v0v1 value=null name="v" style="width:50px;"></input> <br>
+		 	<input type="number" id=v0v1 value=null style="width:50px;"></input> <br>
 		 	<label for="v0a1"><var>a</var> = </label>
-		 	<input type="number" id=v0a1 value=null name="a" style="width:50px;"></input> <br>
+		 	<input type="number" id=v0a1 value=null style="width:50px;"></input> <br>
 		 	<label for="v0t1"><var>t</var> = </label>
-		 	<input type="number" id=v0t1 value=null name="t" style="width:50px;"></input> <br>
+		 	<input type="number" id=v0t1 value=null style="width:50px;"></input> <br>
 
 		 	<br>
 
@@ -183,13 +183,13 @@
 
 			 <br>
 			 <label for="v0x2"><var>x</var> = </label>
-			 <input type="number" id=v0x2 value=null name="x" style="width:50px;"></input> <br>
+			 <input type="number" id=v0x2 value=null style="width:50px;"></input> <br>
 			 <label for="v0x02"><var>x<sub>0</sub></var> = </label>
-			 <input type="number" id=v0x02 value=null name="x0" style="width:50px;"></input> <br>
+			 <input type="number" id=v0x02 value=null style="width:50px;"></input> <br>
 			 <label for="v0a2"><var>a</var> = </label>
-			 <input type="number" id=v0a2 value=null name="a" style="width:50px;"></input> <br>
+			 <input type="number" id=v0a2 value=null style="width:50px;"></input> <br>
 			 <label for="v0t2"><var>t</var> = </label>
-			 <input type="number" id=v0t2 value=null name="t" style="width:50px;"></input> <br>
+			 <input type="number" id=v0t2 value=null style="width:50px;"></input> <br>
 
 			 <br>
 
@@ -206,13 +206,13 @@
 
 			 <br>
 			 <label for="v0v3"><var>v</var> = </label>
-			 <input type="number" id=v0v3 value=null name="v" style="width:50px;"></input> <br>
+			 <input type="number" id=v0v3 value=null style="width:50px;"></input> <br>
 			 <label for="v0x03"><var>x<sub>0</sub></var> = </label>
-			 <input type="number" id=v0x03 value=null name="x0" style="width:50px;"></input> <br>
+			 <input type="number" id=v0x03 value=null style="width:50px;"></input> <br>
 			 <label for="v0a3"><var>a</var> = </label>
-			 <input type="number" id=v0a3 value=null name="a" style="width:50px;"></input> <br>
+			 <input type="number" id=v0a3 value=null style="width:50px;"></input> <br>
 			 <label for="v0x3"><var>x</var> = </label>
-			 <input type="number" id=v0x3 value=null name="x" style="width:50px;"></input> <br>
+			 <input type="number" id=v0x3 value=null style="width:50px;"></input> <br>
 
 			 <br>
 
@@ -274,13 +274,13 @@
 
 				<br>
 				<label for="xx02"><var>x<sub>0</sub></var> = </label>
-				<input type="number" id=xx02 value=null name="x0" style="width:50px;"></input> <br>
+				<input type="number" id=xx02 value=null style="width:50px;"></input> <br>
 				<label for="xv02"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=xv02 value=null name="v0" style="width:50px;"></input> <br>
+				<input type="number" id=xv02 value=null style="width:50px;"></input> <br>
 				<label for="xa2"><var>a</var> = </label>
-				<input type="number" id=xa2 value=null name="a" style="width:50px;"></input> <br>
+				<input type="number" id=xa2 value=null style="width:50px;"></input> <br>
 				<label for="xt2"><var>t</var> = </label>
-				<input type="number" id=xt2 value=null name="t" style="width:50px;"></input> <br>
+				<input type="number" id=xt2 value=null style="width:50px;"></input> <br>
 
 				<br>
 
@@ -296,13 +296,13 @@
 
 				<br>
 				<label for="xv3"><var>v</var> = </label>
-				<input type="number" id=xv3 value=null name="v" style="width:50px;"></input> <br>
+				<input type="number" id=xv3 value=null style="width:50px;"></input> <br>
 				<label for="xv03"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=xv03 value=null name="v0" style="width:50px;"></input> <br>
+				<input type="number" id=xv03 value=null style="width:50px;"></input> <br>
 				<label for="xa3"><var>a</var> = </label>
-				<input type="number" id=xa3 value=null name="a" style="width:50px;"></input> <br>
+				<input type="number" id=xa3 value=null style="width:50px;"></input> <br>
 				<label for="xx03"><var>x<sub>0</sub></var> = </label>
-				<input type="number" id=xx03 value=null name="x0" style="width:50px;"></input> <br>
+				<input type="number" id=xx03 value=null style="width:50px;"></input> <br>
 
 				<br>
 
@@ -323,8 +323,7 @@
 						<label for="outputx">m</label>
 					</td>
 				</tr>
-			</table>
-		</div>
+			</table>		</div>
 
 		<!-- VELOCITY -->
 		 <!-- style="background-color:#E9E9E9" -->
@@ -363,17 +362,17 @@
 
 				<br>
 				<label for="vv01"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=vv01 value=null name="v0" style="width:50px;"></input> <br>
+				<input type="number" id=vv01 value=null style="width:50px;"></input> <br>
 				<label for="va1"><var>a</var> = </label>
-				<input type="number" id=va1 value=null name="a" style="width:50px;"></input> <br>
+				<input type="number" id=va1 value=null style="width:50px;"></input> <br>
 				<label for="vt1"><var>t</var> = </label>
-				<input type="number" id=vt1 value=null name="t" style="width:50px;"></input> <br>
+				<input type="number" id=vt1 value=null style="width:50px;"></input> <br>
 
 				<br>
 
 				<button type="button" onclick="calculate('v', 'E1')">Calculate</button>
 				<button type="button" onclick="showHide(btnv, vEq1)">Back</button>
-		  </div>
+		 </div>
 			<!-- Equation 3 Inputs -->
 			<div id="vEq3" style="display:none">
 			 <var>v<sub>f</sub><sup>2</sup></var> =
@@ -383,13 +382,13 @@
 
 			 <br>
 			 <label for="vv03"><var>v<sub>0</sub></var> = </label>
-			 <input type="number" id=vv03 value=null name="v0" style="width:50px;"></input> <br>
+			 <input type="number" id=vv03 value=null style="width:50px;"></input> <br>
 			 <label for="vx03"><var>x<sub>0</sub></var> = </label>
-			 <input type="number" id=vx03 value=null name="x0" style="width:50px;"></input> <br>
+			 <input type="number" id=vx03 value=null style="width:50px;"></input> <br>
 			 <label for="va3"><var>a</var> = </label>
-			 <input type="number" id=va3 value=null name="a" style="width:50px;"></input> <br>
+			 <input type="number" id=va3 value=null style="width:50px;"></input> <br>
 			 <label for="vx3"><var>x</var> = </label>
-			 <input type="number" id=vx3 value=null name="x" style="width:50px;"></input> <br>
+			 <input type="number" id=vx3 value=null style="width:50px;"></input> <br>
 
 			 <br>
 
@@ -459,11 +458,11 @@
 
 			 	<br>
 			 	<label for="av1"><var>v</var> = </label>
-			 	<input type="number" id=av1 value=null name="v" style="width:50px;"></input> <br>
+			 	<input type="number" id=av1 value=null style="width:50px;"></input> <br>
 			 	<label for="av01"><var>v<sub>0</sub></var> = </label>
-			 	<input type="number" id=av01 value=null name="v0" style="width:50px;"></input> <br>
+			 	<input type="number" id=av01 value=null style="width:50px;"></input> <br>
 			 	<label for="at1"><var>t</var> = </label>
-			 	<input type="number" id=at1 value=null name="t" style="width:50px;"></input> <br>
+			 	<input type="number" id=at1 value=null style="width:50px;"></input> <br>
 
 			 	<br>
 
@@ -479,13 +478,13 @@
 
 		 	 <br>
 		 	 <label for="ax2"><var>x</var> = </label>
-		 	 <input type="number" id=ax2 value=null name="x" style="width:50px;"></input> <br>
+		 	 <input type="number" id=ax2 value=null style="width:50px;"></input> <br>
 		 	 <label for="ax02"><var>x<sub>0</sub></var> = </label>
-		 	 <input type="number" id=ax02 value=null name="x0" style="width:50px;"></input> <br>
+		 	 <input type="number" id=ax02 value=null style="width:50px;"></input> <br>
 		 	 <label for="av02"><var>v<sub>0</sub></var> = </label>
-		 	 <input type="number" id=av02 value=null name="v0" style="width:50px;"></input> <br>
+		 	 <input type="number" id=av02 value=null style="width:50px;"></input> <br>
 		 	 <label for="at2"><var>t</var> = </label>
-		 	 <input type="number" id=at2 value=null name="t" style="width:50px;"></input> <br>
+		 	 <input type="number" id=at2 value=null style="width:50px;"></input> <br>
 
 		 	 <br>
 
@@ -502,13 +501,13 @@
 
 		 	 <br>
 		 	 <label for="av3"><var>v</var> = </label>
-		 	 <input type="number" id=av3 value=null name="v" style="width:50px;"></input> <br>
+		 	 <input type="number" id=av3 value=null style="width:50px;"></input> <br>
 		 	 <label for="ax03"><var>x<sub>0</sub></var> = </label>
-		 	 <input type="number" id=ax03 value=null name="x0" style="width:50px;"></input> <br>
+		 	 <input type="number" id=ax03 value=null style="width:50px;"></input> <br>
 		 	 <label for="av03"><var>v<sub>0</sub></var> = </label>
-		 	 <input type="number" id=av03 value=null name="v0" style="width:50px;"></input> <br>
+		 	 <input type="number" id=av03 value=null style="width:50px;"></input> <br>
 		 	 <label for="ax3"><var>x</var> = </label>
-		 	 <input type="number" id=ax3 value=null name="x" style="width:50px;"></input> <br>
+		 	 <input type="number" id=ax3 value=null style="width:50px;"></input> <br>
 
 		 	 <br>
 
@@ -568,11 +567,11 @@
 
 			 	<br>
 			 	<label for="tv1"><var>v</var> = </label>
-			 	<input type="number" id=tv1 value=null name="v" style="width:50px;"></input> <br>
+			 	<input type="number" id=tv1 value=null style="width:50px;"></input> <br>
 			 	<label for="ta1"><var>a</var> = </label>
-			 	<input type="number" id=ta1 value=null name="a" style="width:50px;"></input> <br>
+			 	<input type="number" id=ta1 value=null style="width:50px;"></input> <br>
 			 	<label for="tv01"><var>v<sub>0</sub></var> = </label>
-			 	<input type="number" id=tv01 value=null name="v0" style="width:50px;"></input> <br>
+			 	<input type="number" id=tv01 value=null style="width:50px;"></input> <br>
 
 			 	<br>
 
@@ -588,13 +587,13 @@
 
 		 	 <br>
 		 	 <label for="tx2"><var>x</var> = </label>
-		 	 <input type="number" id=tx2 value=null name="x" style="width:50px;"></input> <br>
+		 	 <input type="number" id=tx2 value=null style="width:50px;"></input> <br>
 		 	 <label for="tx02"><var>x<sub>0</sub></var> = </label>
-		 	 <input type="number" id=tx02 value=null name="x0" style="width:50px;"></input> <br>
+		 	 <input type="number" id=tx02 value=null style="width:50px;"></input> <br>
 		 	 <label for="ta2"><var>a</var> = </label>
-		 	 <input type="number" id=ta2 value=null name="a" style="width:50px;"></input> <br>
+		 	 <input type="number" id=ta2 value=null style="width:50px;"></input> <br>
 		 	 <label for="tv02"><var>v<sub>0</sub></var> = </label>
-		 	 <input type="number" id=tv02 value=null name="v0" style="width:50px;"></input> <br>
+		 	 <input type="number" id=tv02 value=null style="width:50px;"></input> <br>
 
 		 	 <br>
 
