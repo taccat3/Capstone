@@ -32,7 +32,7 @@
 						var t = document.getElementById("x0t2").value;
 
 						// calculate answer
-						solution = x - (v0 * t + 0.5 * a * Math.pow(t, 2));
+						solution = x - (v0 * t + Number(0.5 * a * Math.pow(t, 2)));
 					} else if (equation.localeCompare('E3') == 0) {
 						// get variable values
 						var x = document.getElementById("x0x3").value;
