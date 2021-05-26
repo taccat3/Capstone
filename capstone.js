@@ -1,4 +1,8 @@
 // visuals that have nothing to do with calculating physics stuff
+
+// global variables
+	var errorMessage = "";
+
 			function openTab(evt, variable) {
 			  var i, tabcontent, tablinks;
 			  tabcontent = document.getElementsByClassName("tabcontent");
@@ -21,170 +25,198 @@
 
 			// Actual Calculation stuff
 			function calculate(answer, equation) {
+				errorMessage = "";
 				var solution;
 
 				if(answer == 'x0') {
 					if(equation.localeCompare('E2') == 0) {
 						// get variable values
 						var x = getValue("x0x2");
-						var v0 = document.getElementById("x0v02").value;
-						var a = document.getElementById("x0a2").value;
-						var t = document.getElementById("x0t2").value;
+						var v0 = getValue("x0v02");
+						var a = getValue("x0a2");
+						var t = getValue("x0t2");
 
 						// calculate answer
-						solution = x - (v0 * t + Number(0.5 * a * Math.pow(t, 2)));
+						solution = x - (v0 * t + 0.5 * a * Math.pow(t, 2));
 					} else if (equation.localeCompare('E3') == 0) {
 						// get variable values
-						var x = document.getElementById("x0x3").value;
-						var v0 = document.getElementById("x0v03").value;
-						var a = document.getElementById("x0a3").value;
-						var v = document.getElementById("x0v3").value;
+						var x = getValue("x0x3");
+						var v0 = getValue("x0v03");
+						var a = getValue("x0a3");
+						var v = getValue("x0v3");
 
 						// calculate answer
 						solution = -1 * (((Math.pow(v, 2) - Math.pow(v0, 2)) / (2 * a)) - x);
 					} else {
-						window.alert(answer + " " + equation + "something wrong");
+						errorMessage += answer + " " + equation + "something wrong\n";
 					}
 
 					// output the answer
+					if(errorMessage.length != 0) {
+						updateError('outputx0');
+						return;
+					}
 					solution = Math.round(solution * 100) / 100;
 					document.getElementById("outputx0").innerHTML = solution;
 				} else if (answer == 'x') {
 					if(equation.localeCompare('E2') == 0) {
 						// get variable values
-						var x0 = document.getElementById("xx02").value;
-						var v0 = document.getElementById("xv02").value;
-						var a = document.getElementById("xa2").value;
-						var t = document.getElementById("xt2").value;
+						var x0 = getValue("xx02");
+						var v0 = getValue("xv02");
+						var a = getValue("xa2");
+						var t = getValue("xt2");
 
 						// calculate answer
 						solution = Number(x0) + v0 * t + 0.5 * a * Math.pow(t, 2); // why do i need to cast x0?
 					} else if (equation.localeCompare('E3') == 0) {
 						// get variable values
-						var x0 = document.getElementById("xx03").value;
-						var v0 = document.getElementById("xv03").value;
-						var a = document.getElementById("xa3").value;
-						var v = document.getElementById("xv3").value;
+						var x0 = getValue("xx03");
+						var v0 = getValue("xv03");
+						var a = getValue("xa3");
+						var v = getValue("xv3");
 
 						// calculate answer
 						solution = ((Math.pow(v, 2) - Math.pow(v0, 2)) / (2 * a)) + Number(x0); // why do I have to cast x0?
 					} else {
-						window.alert(answer + " " + equation + "something wrong");
+						errorMessage += answer + " " + equation + "something wrong\n";
 					}
 
 					// output the answer
+					if(errorMessage.length != 0) {
+						updateError("outputx");
+						return;
+					}
+
 					solution = Math.round(solution * 100) / 100;
 					document.getElementById("outputx").innerHTML = solution;
 				} else if (answer == 'v0') {
 					if(equation.localeCompare('E1') == 0) {
 						// get variable values
-						var v = document.getElementById("v0v1").value;
-						var a = document.getElementById("v0a1").value;
-						var t = document.getElementById("v0t1").value;
+						var v = getValue("v0v1");
+						var a = getValue("v0a1");
+						var t = getValue("v0t1");
 						// calculate answer
 						var solution = v - a * t;
 					} else if(equation.localeCompare('E2') == 0) {
 						// get variable values
-						var x = document.getElementById("v0x2").value;
-						var x0 = document.getElementById("v0x02").value;
-						var a = document.getElementById("v0a2").value;
-						var t = document.getElementById("v0t2").value;
+						var x = getValue("v0x2");
+						var x0 = getValue("v0x02");
+						var a = getValue("v0a2");
+						var t = getValue("v0t2");
 						// calculate answer
 						var solution = (x - x0 - 0.5 * a * Math.pow(t, 2)) / t;
 					} else if (equation.localeCompare('E3') == 0) {
 						// get variable values
-						var x = document.getElementById("v0x3").value;
-						var x0 = document.getElementById("v0x03").value;
-						var a = document.getElementById("v0a3").value;
-						var v = document.getElementById("v0v3").value;
+						var x = getValue("v0x3");
+						var x0 = getValue("v0x03");
+						var a = getValue("v0a3");
+						var v = getValue("v0v3");
 
 						// calculate answer
 						solution = Math.sqrt(Math.pow(v, 2) - 2 * a * (x - x0));
 					} else {
-						window.alert(answer + " " + equation + "something wrong");
+						errorMessage += answer + " " + equation + "something wrong\n";
 					}
 					// output the answer
+					if(errorMessage.length != 0) {
+						updateError("outputv0");
+						return;
+					}
+
 					solution = Math.round(solution * 100) / 100;
 					document.getElementById("outputv0").innerHTML = solution;
 				} else if(answer == 'v') {
 					if(equation.localeCompare('E1') == 0) {
 						// get variable values
-						var v0 = document.getElementById("vv01").value;
-						var a = document.getElementById("va1").value;
-						var t = document.getElementById("vt1").value;
+						var v0 = getValue("vv01");
+						var a = getValue("va1");
+						var t = getValue("vt1");
 						// calculate answer
 						var solution = Number(v0) + (a * t); // idk why i need to cast here
 					} else if (equation.localeCompare('E3') == 0) {
 						// get variable values
-						var x = document.getElementById("vx3").value;
-						var x0 = document.getElementById("vx03").value;
-						var a = document.getElementById("va3").value;
-						var v0 = document.getElementById("vv03").value;
+						var x = getValue("vx3");
+						var x0 = getValue("vx03");
+						var a = getValue("va3");
+						var v0 = getValue("vv03");
 
 						// calculate answer
 						solution = Math.sqrt(Math.pow(v0, 2) + 2 * a * (x - x0));
 					} else {
-						window.alert(answer + " " + equation + "something wrong");
+						errorMessage += answer + " " + equation + "something wrong\n";
 					}
 					// output the answer
+					if(errorMessage.length != 0) {
+						updateError("outputv");
+						return;
+					}
+
 					solution = Math.round(solution * 100) / 100;
 					document.getElementById("outputv").innerHTML = solution;
 				} else if(answer == 'a') {
 					if(equation.localeCompare('E1') == 0) {
 						// get variable values
-						var v = document.getElementById("av1").value;
-						var v0 = document.getElementById("av01").value;
-						var t = document.getElementById("at1").value;
+						var v = getValue("av1");
+						var v0 = getValue("av01");
+						var t = getValue("at1");
 
 						// calculate answer
 						solution = (v - v0) / t;
 					} else if (equation.localeCompare('E2') == 0) {
 						// get variable values
-						var x = document.getElementById("ax2").value;
-						var x0 = document.getElementById("ax02").value;
-						var v0 = document.getElementById("av02").value;
-						var t = document.getElementById("at2").value;
+						var x = getValue("ax2");
+						var x0 = getValue("ax02");
+						var v0 = getValue("av02");
+						var t = getValue("at2");
 
 						// calculate answer
 						solution = (x - x0 - (v0 * t)) / (0.5 * Math.pow(t, 2));
 					} else if(equation.localeCompare('E3') == 0) {
 						// get variable values
-						var x = document.getElementById("v0x3").value;
-						var x0 = document.getElementById("v0x03").value;
-						var v0 = document.getElementById("av03").value;
-						var v = document.getElementById("v0v3").value;
+						var x = getValue("v0x3");
+						var x0 = getValue("v0x03");
+						var v0 = getValue("av03");
+						var v = getValue("v0v3");
 
 						// calculate answer
 						solution = (Math.pow(v, 2) - Math.pow(v0, 2)) / (2 * (x - x0));
 					} else {
-						window.alert(answer + " " + equation + "something wrong");
+						errorMessage += answer + " " + equation + "something wrong\n";
 					}
 					// output the answer
+					if(errorMessage.length != 0) {
+						updateError("outputa");
+						return;
+					}
+
 					solution = Math.round(solution * 100) / 100;
 					document.getElementById("outputa").innerHTML = solution;
 				} else if(answer == 't') {
 					if(equation.localeCompare('E1') == 0) {
 						// get variable values
-						var v = document.getElementById("tv1").value;
-						var v0 = document.getElementById("tv01").value;
-						var a = document.getElementById("ta1").value;
+						var v = getValue("tv1");
+						var v0 = getValue("tv01");
+						var a = getValue("ta1");
 
 						// calculate answer
 						solution = (v - v0) / a;
 						solution = Math.round(solution * 100) / 100;
 					} else if (equation.localeCompare('E2') == 0) {
 						// get variable values
-						var x = document.getElementById("tx2").value;
-						var x0 = document.getElementById("tx02").value;
-						var v0 = document.getElementById("tv02").value;
-						var a = document.getElementById("ta2").value;
+						var x = getValue("tx2");
+						var x0 = getValue("tx02");
+						var v0 = getValue("tv02");
+						var a = getValue("ta2");
 
 						// calculate answer
 						// won't work if t = imaginary number --> need error checking
+						// error checking messages
+
 						if(Math.pow(v0, 2) - (4 * (0.5 * a) * (x0 - x)) < 0) {
-						  window.alert("Calculated imaginary time, only real values accepted");
-							return;
+							errorMessage +=  "Calculated imaginary time, only real values accepted\n";
 						}
+
+
 						var op1 = ((-1 * v0) + Math.sqrt(Math.pow(v0, 2) - (4 * (0.5*a) * (x0 - x)))) / (2 * (0.5 * a)); // quadratic formula
 						var op2 = ((-1 * v0) - Math.sqrt(Math.pow(v0, 2) - (4 * (0.5*a) * (x0 - x)))) / (2 * (0.5 * a)); // quadratic formula
 
@@ -193,13 +225,23 @@
 
 						solution = op1 + ", " + op2;
 					} else {
-							window.alert(answer + " " + equation + "something wrong");
+							errorMessage += answer + " " + equation + "something wrong\n";
 					}
 
 					// output the answer
+					if(errorMessage.length != 0) {
+						updateError("outputt");
+						return;
+					}
+
 					document.getElementById("outputt").innerHTML = solution;
 				} else {
-					window.alert(answer + " " + equation + "something wrong");
+					errorMessage += answer + " " + equation + "something wrong\n";
+				}
+
+				if(errorMessage.length == 0) {
+					errorMessage = "None";
+					updateError("");
 				}
 			}
 
@@ -215,12 +257,24 @@
 			function getValue(box) {
 				var input = document.getElementById(box);
 				if(isEmpty(input)) {
-					alert("No " + input.id + " input");
+					errorMessage += "No " + input.name + " input\n";
 				} else {
-					x = x.value;
+					input = input.value;
 				}
 
 				return input;
+			}
+
+			function updateError(output) {
+				if(output.length > 0) {
+					document.getElementById(output).value = "?";
+				}
+				if(errorMessage.localeCompare("None") == 0) {
+					document.getElementById("error").style.color = "black";
+				} else {
+					document.getElementById("error").style.color = "red";
+				}
+				document.getElementById("error").value = errorMessage;
 			}
 
 			function isEmpty(box) {
