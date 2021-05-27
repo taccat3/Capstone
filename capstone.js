@@ -17,6 +17,10 @@
 			  evt.currentTarget.className += " active";
 			}
 
+			function back(show, hide) {
+				showHide(show, hide);
+			}
+
 			function showHide(show, hide) {
 				document.getElementById(show.id).style.display = "inline";
 				document.getElementById(hide.id).style.display = "none";
@@ -286,13 +290,100 @@
 			}
 
 			// This doesn't work but honestly I just don't care
+			function start() {
+				openTab(event, "x0");
+
+				reset();
+			}
+
 			function reset() {
-				document.getElementById("numx2").setAttribute('value', 0);
-				document.getElementById("numv02").setAttribute('value', 0);
-				document.getElementById("numa2").setAttribute('value', 0);
-				document.getElementById("numt2").setAttribute('value', 0);
-				document.getElementById("numx2").setAttribute('value', 0);
-				document.getElementById("output").innerHTML = "?";
+
+				// Initial Position Equation 2
+				document.getElementById("x0x2").setAttribute('value', 0);
+				document.getElementById("x0v02").setAttribute('value', 0);
+				document.getElementById("x0a2").setAttribute('value', 0);
+				document.getElementById("x0t2").setAttribute('value', 0);
+
+				// Initial Position Equation 3
+				document.getElementById("x0x3").setAttribute('value', 0);
+				document.getElementById("x0v03").setAttribute('value', 0);
+				document.getElementById("x0a3").setAttribute('value', 0);
+				document.getElementById("x0v3").setAttribute('value', 0);
+
+				// Initial Velocity Equation 1
+				document.getElementById("v0v1").setAttribute('value', 0);
+				document.getElementById("v0a1").setAttribute('value', 0);
+				document.getElementById("v0t1").setAttribute('value', 0);
+
+				// Initial Velocity Equation 2
+				document.getElementById("v0x2").setAttribute('value', 0);
+				document.getElementById("v0x02").setAttribute('value', 0);
+				document.getElementById("v0a2").setAttribute('value', 0);
+				document.getElementById("v0t2").setAttribute('value', 0);
+
+				// Initial Velocity Equation 3
+				document.getElementById("v0x3").setAttribute('value', 0);
+				document.getElementById("v0x03").setAttribute('value', 0);
+				document.getElementById("v0a3").setAttribute('value', 0);
+				document.getElementById("v0v3").setAttribute('value', 0);
+
+				// Position Equation 2
+				document.getElementById("xx02").setAttribute('value', 0);
+				document.getElementById("xv02").setAttribute('value', 0);
+				document.getElementById("xa2").setAttribute('value', 0);
+				document.getElementById("xt2").setAttribute('value', 0);
+
+				// Position Equation 3
+				document.getElementById("xx03").setAttribute('value', 0);
+				document.getElementById("xv03").setAttribute('value', 0);
+				document.getElementById("xa3").setAttribute('value', 0);
+				document.getElementById("xv3").setAttribute('value', 0);
+
+				// Velocity Equation 1
+				document.getElementById("vv01").setAttribute('value', 0);
+				document.getElementById("va1").setAttribute('value', 0);
+				document.getElementById("vt1").setAttribute('value', 0);
+
+				// Velocity Equation 3
+				document.getElementById("vx3").setAttribute('value', 0);
+				document.getElementById("vx03").setAttribute('value', 0);
+				document.getElementById("va3").setAttribute('value', 0);
+				document.getElementById("vv03").setAttribute('value', 0);
+
+				// Acceleration Equation 1
+				document.getElementById("av01").setAttribute('value', 0);
+				document.getElementById("av1").setAttribute('value', 0);
+				document.getElementById("at1").setAttribute('value', 0);
+
+				// Acceleration Equation 2
+				document.getElementById("ax2").setAttribute('value', 0);
+				document.getElementById("ax02").setAttribute('value', 0);
+				document.getElementById("av02").setAttribute('value', 0);
+				document.getElementById("at2").setAttribute('value', 0);
+
+				// Acceleration Equation 3
+				document.getElementById("ax3").setAttribute('value', 0);
+				document.getElementById("ax03").setAttribute('value', 0);
+				document.getElementById("av3").setAttribute('value', 0);
+				document.getElementById("av03").setAttribute('value', 0);
+
+				// Time Equation 1
+				document.getElementById("tv01").setAttribute('value', 0);
+				document.getElementById("tv1").setAttribute('value', 0);
+				document.getElementById("ta1").setAttribute('value', 0);
+
+				// Time Equation 2
+				document.getElementById("tx2").setAttribute('value', 0);
+				document.getElementById("tx02").setAttribute('value', 0);
+				document.getElementById("tv02").setAttribute('value', 0);
+				document.getElementById("ta2").setAttribute('value', 0);
+
+				// reset all answer outputs
+				document.getElementById("outputx0").innerHTML = "?";
+
+				// reset error box
+				document.getElementById("error").style.color = "black";
+				document.getElementById("error").value = "None";
 			}
 
 			window.onload = function() {

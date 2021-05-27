@@ -6,7 +6,7 @@
 			<title>Kinematics Calculator</title>
 
 	</head>
-	<body onload="reset()" background="https://user-images.githubusercontent.com/66643794/119005729-b71a8e00-b95d-11eb-86db-157a04f3cb77.png">
+	<body onload="start()" background="https://user-images.githubusercontent.com/66643794/119005729-b71a8e00-b95d-11eb-86db-157a04f3cb77.png">
 		<table style="none">
 			<tr>
 				<td>
@@ -64,18 +64,18 @@
 
 				<br>
 				<label for="x0x2"><var>x</var> = </label>
-				<input type="number" id=x0x2 value=null name="x" style="width:50px;"> <br>
+				<input type="number" id=x0x2 value=null name="x" style="width:50px;" step="any"> <br>
 				<label for="x0v02"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=x0v02 value=null name="v0" style="width:50px;"> <br>
+				<input type="number" id=x0v02 value=null name="v0" style="width:50px;" step="any"> <br>
 				<label for="x0a2"><var>a</var> = </label>
-				<input type="number" id=x0a2 value=null name="a" style="width:50px;"> <br>
+				<input type="number" id=x0a2 value=null name="a" style="width:50px;" step="any"> <br>
 				<label for="x0t2"><var>t</var> = </label>
-				<input type="number" id=x0t2 value=null name="t" style="width:50px;"> <br>
+				<input type="number" id=x0t2 value=null name="t" style="width:50px;" step="any"> <br>
 
 				<br>
 
 				<button type="button" onclick="calculate('x0', 'E2')">Calculate</button>
-				<button type="button" onclick="showHide(btnx0, x0Eq2)">Back</button>
+				<button type="button" onclick="back(btnx0, x0Eq2)">Back</button>
 			</div>
 
 			<div id="x0Eq3" style="display:none">
@@ -86,18 +86,18 @@
 
 				<br>
 				<label for="x0v3"><var>v</var> = </label>
-				<input type="number" id=x0v3 value=null name="v" style="width:50px;"> <br>
+				<input type="number" id=x0v3 value=null name="v" style="width:50px;" step="any"> <br>
 				<label for="x0v03"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=x0v03 value=null name="v0" style="width:50px;"> <br>
+				<input type="number" id=x0v03 value=null name="v0" style="width:50px;" step="any"> <br>
 				<label for="x0a3"><var>a</var> = </label>
-				<input type="number" id=x0a3 value=null name="a" style="width:50px;"> <br>
+				<input type="number" id=x0a3 value=null name="a" style="width:50px;" step="any"> <br>
 				<label for="x0x3"><var>x</var> = </label>
-				<input type="number" id=x0x3 value=null name="x" style="width:50px;"> <br>
+				<input type="number" id=x0x3 value=null name="x" style="width:50px;" step="any"> <br>
 
 				<br>
 
 				<button type="button" onclick="calculate('x0', 'E3')">Calculate</button>
-				<button type="button" onclick="showHide(btnx0, x0Eq3)">Back</button>
+				<button type="button" onclick="back(btnx0, x0Eq3)">Back</button>
 			</div>
 
 			<br>
@@ -161,16 +161,16 @@
 
 		 	<br>
 		  <label for="v0v1"><var>v</var> = </label>
-		 	<input type="number" id=v0v1 value=null name="v0" style="width:50px;"> <br>
+		 	<input type="number" id=v0v1 value=null name="v0" style="width:50px;" step="any"> <br>
 		 	<label for="v0a1"><var>a</var> = </label>
-		 	<input type="number" id=v0a1 value=null name="a" style="width:50px;"> <br>
+		 	<input type="number" id=v0a1 value=null name="a" style="width:50px;" step="any"> <br>
 		 	<label for="v0t1"><var>t</var> = </label>
-		 	<input type="number" id=v0t1 value=null name="t" style="width:50px;"> <br>
+		 	<input type="number" id=v0t1 value=null name="t" style="width:50px;" step="any"> <br>
 
 		 	<br>
 
 		 	<button type="button" onclick="calculate('v0', 'E1')">Calculate</button>
-		 	<button type="button" onclick="showHide(btnv0, v0Eq1)">Back</button>
+		 	<button type="button" onclick="back(btnv0, v0Eq1)">Back</button>
 		 </div>
 
 		 <!--Equation 2 Inputs -->
@@ -181,18 +181,18 @@
 
 			 <br>
 			 <label for="v0x2"><var>x</var> = </label>
-			 <input type="number" id=v0x2 value=null name="x" style="width:50px;"> <br>
+			 <input type="number" id=v0x2 value=null name="x" style="width:50px;" step="any"> <br>
 			 <label for="v0x02"><var>x<sub>0</sub></var> = </label>
-			 <input type="number" id=v0x02 value=null name="x0" style="width:50px;"> <br>
+			 <input type="number" id=v0x02 value=null name="x0" style="width:50px;" step="any"> <br>
 			 <label for="v0a2"><var>a</var> = </label>
-			 <input type="number" id=v0a2 value=null name="a" style="width:50px;"> <br>
+			 <input type="number" id=v0a2 value=null name="a" style="width:50px;" step="any"> <br>
 			 <label for="v0t2"><var>t</var> = </label>
-			 <input type="number" id=v0t2 value=null name="t" style="width:50px;"> <br>
+			 <input type="number" id=v0t2 value=null name="t" style="width:50px;" step="any"> <br>
 
 			 <br>
 
 			 <button type="button" onclick="calculate('v0', 'E2')">Calculate</button>
-			 <button type="button" onclick="showHide(btnv0, v0Eq2)">Back</button>
+			 <button type="button" onclick="back(btnv0, v0Eq2)">Back</button>
 		 </div>
 
 		 <!-- Equation 3 Inputs -->
@@ -204,18 +204,18 @@
 
 			 <br>
 			 <label for="v0v3"><var>v</var> = </label>
-			 <input type="number" id=v0v3 value=null name="v" style="width:50px;"> <br>
+			 <input type="number" id=v0v3 value=null name="v" style="width:50px;" step="any"> <br>
 			 <label for="v0x03"><var>x<sub>0</sub></var> = </label>
-			 <input type="number" id=v0x03 value=null name="x0" style="width:50px;"> <br>
+			 <input type="number" id=v0x03 value=null name="x0" style="width:50px;" step="any"> <br>
 			 <label for="v0a3"><var>a</var> = </label>
-			 <input type="number" id=v0a3 value=null name="a" style="width:50px;"> <br>
+			 <input type="number" id=v0a3 value=null name="a" style="width:50px;" step="any"> <br>
 			 <label for="v0x3"><var>x</var> = </label>
-			 <input type="number" id=v0x3 value=null name="x" style="width:50px;"> <br>
+			 <input type="number" id=v0x3 value=null name="x" style="width:50px;" step="any"> <br>
 
 			 <br>
 
 			 <button type="button" onclick="calculate('v0', 'E3')">Calculate</button>
-			 <button type="button" onclick="showHide(btnv0, v0Eq3)">Back</button>
+			 <button type="button" onclick="back(btnv0, v0Eq3)">Back</button>
 		 </div>
 
 
@@ -272,18 +272,18 @@
 
 				<br>
 				<label for="xx02"><var>x<sub>0</sub></var> = </label>
-				<input type="number" id=xx02 value=null name="x0" style="width:50px;"> <br>
+				<input type="number" id=xx02 value=null name="x0" style="width:50px;" step="any"> <br>
 				<label for="xv02"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=xv02 value=null name="v0" style="width:50px;"> <br>
+				<input type="number" id=xv02 value=null name="v0" style="width:50px;" step="any"> <br>
 				<label for="xa2"><var>a</var> = </label>
-				<input type="number" id=xa2 value=null name="a" style="width:50px;"> <br>
+				<input type="number" id=xa2 value=null name="a" style="width:50px;" step="any"> <br>
 				<label for="xt2"><var>t</var> = </label>
-				<input type="number" id=xt2 value=null name="t" style="width:50px;"> <br>
+				<input type="number" id=xt2 value=null name="t" style="width:50px;" step="any"> <br>
 
 				<br>
 
 				<button type="button" onclick="calculate('x', 'E2')">Calculate</button>
-				<button type="button" onclick="showHide(btnx, xEq2)">Back</button>
+				<button type="button" onclick="back(btnx, xEq2)">Back</button>
 			</div>
 
 			<div id="xEq3" style="display:none">
@@ -294,18 +294,18 @@
 
 				<br>
 				<label for="xv3"><var>v</var> = </label>
-				<input type="number" id=xv3 value=null name="v" style="width:50px;"> <br>
+				<input type="number" id=xv3 value=null name="v" style="width:50px;" step="any"> <br>
 				<label for="xv03"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=xv03 value=null name="v0" style="width:50px;"> <br>
+				<input type="number" id=xv03 value=null name="v0" style="width:50px;" step="any"> <br>
 				<label for="xa3"><var>a</var> = </label>
-				<input type="number" id=xa3 value=null name="a" style="width:50px;"> <br>
+				<input type="number" id=xa3 value=null name="a" style="width:50px;" step="any"> <br>
 				<label for="xx03"><var>x<sub>0</sub></var> = </label>
-				<input type="number" id=xx03 value=null name="x0" style="width:50px;"> <br>
+				<input type="number" id=xx03 value=null name="x0" style="width:50px;" step="any"> <br>
 
 				<br>
 
 				<button type="button" onclick="calculate('x', 'E3')">Calculate</button>
-				<button type="button" onclick="showHide(btnx, xEq3)">Back</button>
+				<button type="button" onclick="back(btnx, xEq3)">Back</button>
 			</div>
 
 			<br>
@@ -360,16 +360,16 @@
 
 				<br>
 				<label for="vv01"><var>v<sub>0</sub></var> = </label>
-				<input type="number" id=vv01 value=null name="v0" style="width:50px;"> <br>
+				<input type="number" id=vv01 value=null name="v0" style="width:50px;" step="any"> <br>
 				<label for="va1"><var>a</var> = </label>
-				<input type="number" id=va1 value=null name="a" style="width:50px;"> <br>
+				<input type="number" id=va1 value=null name="a" style="width:50px;" step="any"> <br>
 				<label for="vt1"><var>t</var> = </label>
-				<input type="number" id=vt1 value=null name="t" style="width:50px;"> <br>
+				<input type="number" id=vt1 value=null name="t" style="width:50px;" step="any"> <br>
 
 				<br>
 
 				<button type="button" onclick="calculate('v', 'E1')">Calculate</button>
-				<button type="button" onclick="showHide(btnv, vEq1)">Back</button>
+				<button type="button" onclick="back(btnv, vEq1)">Back</button>
 		 </div>
 			<!-- Equation 3 Inputs -->
 			<div id="vEq3" style="display:none">
@@ -380,18 +380,18 @@
 
 			 <br>
 			 <label for="vv03"><var>v<sub>0</sub></var> = </label>
-			 <input type="number" id=vv03 value=null name="v0" style="width:50px;"> <br>
+			 <input type="number" id=vv03 value=null name="v0" style="width:50px;" step="any"> <br>
 			 <label for="vx03"><var>x<sub>0</sub></var> = </label>
-			 <input type="number" id=vx03 value=null name="x0" style="width:50px;"> <br>
+			 <input type="number" id=vx03 value=null name="x0" style="width:50px;" step="any"> <br>
 			 <label for="va3"><var>a</var> = </label>
-			 <input type="number" id=va3 value=null name="a" style="width:50px;"> <br>
+			 <input type="number" id=va3 value=null name="a" style="width:50px;" step="any"> <br>
 			 <label for="vx3"><var>x</var> = </label>
-			 <input type="number" id=vx3 value=null name="x" style="width:50px;"> <br>
+			 <input type="number" id=vx3 value=null name="x" style="width:50px;" step="any"> <br>
 
 			 <br>
 
 			 <button type="button" onclick="calculate('v', 'E3')">Calculate</button>
-			 <button type="button" onclick="showHide(btnv, vEq3)">Back</button>
+			 <button type="button" onclick="back(btnv, vEq3)">Back</button>
 			</div>
 
 			<!-- Output Formatting -->
@@ -456,16 +456,16 @@
 
 			 	<br>
 			 	<label for="av1"><var>v</var> = </label>
-			 	<input type="number" id=av1 value=null name="v" style="width:50px;"> <br>
+			 	<input type="number" id=av1 value=null name="v" style="width:50px;" step="any"> <br>
 			 	<label for="av01"><var>v<sub>0</sub></var> = </label>
-			 	<input type="number" id=av01 value=null name="v0" style="width:50px;"> <br>
+			 	<input type="number" id=av01 value=null name="v0" style="width:50px;" step="any"> <br>
 			 	<label for="at1"><var>t</var> = </label>
-			 	<input type="number" id=at1 value=null name="t" style="width:50px;"> <br>
+			 	<input type="number" id=at1 value=null name="t" style="width:50px;" step="any"> <br>
 
 			 	<br>
 
 			 	<button type="button" onclick="calculate('a', 'E1')">Calculate</button>
-			 	<button type="button" onclick="showHide(btna, aEq1)">Back</button>
+			 	<button type="button" onclick="back(btna, aEq1)">Back</button>
 		  </div>
 
 		  <!--Equation 2 Inputs -->
@@ -476,18 +476,18 @@
 
 		 	 <br>
 		 	 <label for="ax2"><var>x</var> = </label>
-		 	 <input type="number" id=ax2 value=null name="x" style="width:50px;"> <br>
+		 	 <input type="number" id=ax2 value=null name="x" style="width:50px;" step="any"> <br>
 		 	 <label for="ax02"><var>x<sub>0</sub></var> = </label>
-		 	 <input type="number" id=ax02 value=null name="x0" style="width:50px;"> <br>
+		 	 <input type="number" id=ax02 value=null name="x0" style="width:50px;" step="any"> <br>
 		 	 <label for="av02"><var>v<sub>0</sub></var> = </label>
-		 	 <input type="number" id=av02 value=null name="v0" style="width:50px;"> <br>
+		 	 <input type="number" id=av02 value=null name="v0" style="width:50px;" step="any"> <br>
 		 	 <label for="at2"><var>t</var> = </label>
-		 	 <input type="number" id=at2 value=null name="t" style="width:50px;"> <br>
+		 	 <input type="number" id=at2 value=null name="t" style="width:50px;" step="any"> <br>
 
 		 	 <br>
 
 		 	 <button type="button" onclick="calculate('a', 'E2')">Calculate</button>
-		 	 <button type="button" onclick="showHide(btna, aEq2)">Back</button>
+		 	 <button type="button" onclick="back(btna, aEq2)">Back</button>
 		  </div>
 
 		  <!-- Equation 3 Inputs -->
@@ -499,18 +499,18 @@
 
 		 	 <br>
 		 	 <label for="av3"><var>v</var> = </label>
-		 	 <input type="number" id=av3 value=null name="v" style="width:50px;"> <br>
+		 	 <input type="number" id=av3 value=null name="v" style="width:50px;" step="any"> <br>
 		 	 <label for="ax03"><var>x<sub>0</sub></var> = </label>
-		 	 <input type="number" id=ax03 value=null name="x0" style="width:50px;"> <br>
+		 	 <input type="number" id=ax03 value=null name="x0" style="width:50px;" step="any"> <br>
 		 	 <label for="av03"><var>v<sub>0</sub></var> = </label>
-		 	 <input type="number" id=av03 value=null name="v0" style="width:50px;"> <br>
+		 	 <input type="number" id=av03 value=null name="v0" style="width:50px;" step="any"> <br>
 		 	 <label for="ax3"><var>x</var> = </label>
-		 	 <input type="number" id=ax3 value=null name="x" style="width:50px;"> <br>
+		 	 <input type="number" id=ax3 value=null name="x" style="width:50px;" step="any"> <br>
 
 		 	 <br>
 
 		 	 <button type="button" onclick="calculate('a', 'E3')">Calculate</button>
-		 	 <button type="button" onclick="showHide(btna, aEq3)">Back</button>
+		 	 <button type="button" onclick="back(btna, aEq3)">Back</button>
 		  </div>
 
 		  <!-- Output Formatting -->
@@ -565,16 +565,16 @@
 
 			 	<br>
 			 	<label for="tv1"><var>v</var> = </label>
-			 	<input type="number" id=tv1 value=null name="v" style="width:50px;"> <br>
+			 	<input type="number" id=tv1 value=null name="v" style="width:50px;" step="any"> <br>
 			 	<label for="ta1"><var>a</var> = </label>
-			 	<input type="number" id=ta1 value=null name="a" style="width:50px;"> <br>
+			 	<input type="number" id=ta1 value=null name="a" style="width:50px;" step="any"> <br>
 			 	<label for="tv01"><var>v<sub>0</sub></var> = </label>
-			 	<input type="number" id=tv01 value=null name="v0" style="width:50px;"> <br>
+			 	<input type="number" id=tv01 value=null name="v0" style="width:50px;" step="any"> <br>
 
 			 	<br>
 
 			 	<button type="button" onclick="calculate('t', 'E1')">Calculate</button>
-			 	<button type="button" onclick="showHide(btnt, tEq1)">Back</button>
+			 	<button type="button" onclick="back(btnt, tEq1)">Back</button>
 			  </div>
 
 		  <!--Equation 2 Inputs -->
@@ -585,18 +585,18 @@
 
 		 	 <br>
 		 	 <label for="tx2"><var>x</var> = </label>
-		 	 <input type="number" id=tx2 value=null name="x" style="width:50px;"> <br>
+		 	 <input type="number" id=tx2 value=null name="x" style="width:50px;" step="any"> <br>
 		 	 <label for="tx02"><var>x<sub>0</sub></var> = </label>
-		 	 <input type="number" id=tx02 value=null name="x0" style="width:50px;"> <br>
+		 	 <input type="number" id=tx02 value=null name="x0" style="width:50px;" step="any"> <br>
 		 	 <label for="ta2"><var>a</var> = </label>
-		 	 <input type="number" id=ta2 value=null name="a" style="width:50px;"> <br>
+		 	 <input type="number" id=ta2 value=null name="a" style="width:50px;" step="any"> <br>
 		 	 <label for="tv02"><var>v<sub>0</sub></var> = </label>
-		 	 <input type="number" id=tv02 value=null name='v0' style="width:50px;"> <br>
+		 	 <input type="number" id=tv02 value=null name='v0' style="width:50px;" step="any"> <br>
 
 		 	 <br>
 
 		 	 <button type="button" onclick="calculate('t', 'E2')">Calculate</button>
-		 	 <button type="button" onclick="showHide(btnt, tEq2)">Back</button>
+		 	 <button type="button" onclick="back(btnt, tEq2)">Back</button>
 		  </div>
 
 		  <!-- Output Formatting -->
