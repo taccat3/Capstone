@@ -7,12 +7,9 @@
 	</head>
 
 	<body onload="start()" background="https://user-images.githubusercontent.com/66643794/119005729-b71a8e00-b95d-11eb-86db-157a04f3cb77.png">
-	<div class="row">
-		<div class="column"><h1>Kinematics Calculator</h1></div>
-		<div class="column"><h2>(1-Dimension)</h2>
-		</div>
-	</div>
 
+		<h1>Kinematics Calculator</h1>
+		<h2>(1-Dimension)</h2>
 	<br>
 
 		<p>Click on the buttons inside the tabbed menu:</p>
