@@ -7,16 +7,12 @@
 
 	</head>
 	<body onload="start()" background="https://user-images.githubusercontent.com/66643794/119005729-b71a8e00-b95d-11eb-86db-157a04f3cb77.png">
-		<table style="none">
-			<tr>
-				<td>
-					<h1>Kinematics Calculator</h1>
-				</td>
-				<td>
-					<h2>(1-Dimension)</h2>
-				</td>
-			</tr>
-		</table>
+	<div class="row">
+		<div class="column"><h1>Kinematics Calculator</h1></div>
+		<div class="column"><h2>(1-Dimension)</h2>
+		</div>
+	</div>
+
 		<p>Click on the buttons inside the tabbed menu:</p>
 
 		<div class="tab" style="background-color:#E9E9E9">
